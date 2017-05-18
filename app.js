@@ -10,6 +10,29 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
+var config = require('./config/config');
+console.log("\t\t\tCONFIG : ", config.db);
+var glob = require('glob');
+
+//setup database
+mongoose = require('mongoose');
+mongoose.Promise = global.Promise;
+
+mongoose.connect(config.db);
+var db = mongoose.connection;
+db.on('error', function () {
+  throw new Error('unable to connect to database at ' + config.db);
+});
+db.on('connected', function () {
+  console.log("Connected to db "+ config.db);
+});
+
+var models = glob.sync(config.root + '/models/*.js');
+models.forEach(function (model) {
+  console.log("Model ", model);
+  require(model);
+});
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
