@@ -5,7 +5,7 @@ class Bio extends Component {
  render() {
      return (
        <div  className="bio">
-       hello BIO
+       hello B
       </div>
     )}
 }
