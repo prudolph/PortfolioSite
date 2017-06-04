@@ -1,17 +1,15 @@
 
+{{error_messages}}
+
 <div class="upload">
   <h2>Add Project</h2>
 
-  <form id="upload-form" action="/projects/add" enctype="multipart/form-data" method="post">
-    <input type="hidden" id="photo-url" name="photo-url" value="/images/default.png">
 
+  <form id="upload-form" action="/projects/add"  method="post">
     <div class="form-group">
-      <input type="file" name="pic" accept="image/*">
       <input type="text" id="title" name="title" class="form-control" placeholder="Project Title" required>
       <input type="text" id="description" name="description" class="form-control" placeholder="Project Description" required>
     </div>
-
-
 
     <button class="btn btn-lg btn-primary" type="submit">Save</button>
   </form>

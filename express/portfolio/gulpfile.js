@@ -17,10 +17,8 @@ gulp.task('js', function () {
   return gulp.src([
 			'./app/javascripts/jquery.min.js',
 			'./app/javascripts/bootstrap.js',
-      './app/javascripts/add.js',
-      './app/javascripts/jsrender.js',
-      './app/javascripts/feed.js',
-      './app/javascripts/upload.js'
+      './javascripts/projects.js',
+
 		])
 		.pipe(concat('main.js'))
 		//.pipe(uglify())

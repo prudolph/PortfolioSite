@@ -1,0 +1,13 @@
+.about {
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center; }
+  .about .profileImage {
+    width: 100px;
+    height: 100px;
+    background-color: red; }
+  .about .aboutText {
+    font-family: 'Montserrat Light', sans-serif;
+    font-size: 10px; }
