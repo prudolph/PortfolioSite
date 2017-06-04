@@ -2,12 +2,16 @@
   color: white;
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: center; }
+  justify-content: space-around;
+  margin-bottom: 50px;
+  background-color: #393d51; }
   .about .profileImage {
-    width: 100px;
+    float: left;
+    width: 45%;
     height: 100px;
     background-color: red; }
   .about .aboutText {
+    float: right;
+    width: 45%;
     font-family: 'Montserrat Light', sans-serif;
     font-size: 10px; }
