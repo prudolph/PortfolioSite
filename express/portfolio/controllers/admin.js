@@ -32,8 +32,11 @@ router.post('/addProject' ,function(req, res, next) {
 
   var p = new Project({
     title: req.body['title'],
-    teaser: "Teaser",
-    description: req.body['description']
+    slug: req.body['slug'],
+    subtitle: req.body['subtitle'],
+    description: req.body['description'],
+    facts:req.body['facts'],
+    tags:req.body['tags']
   });
 
   p.save(function (error) {

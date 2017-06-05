@@ -4,14 +4,18 @@
 window.addEventListener('load',loadForm,false);
 function loadForm(){
   CKEDITOR.replace( 'description' );
-
+  CKEDITOR.replace( 'subtitle' );
   var dataString = '{{{json data}}}';
 
   if(dataString.length){
    var data = JSON.parse(dataString);
    if(data){
      $('#title').val(data.title);
+     $('#slug').val(data.slug);
+     CKEDITOR.instances['subtitle'].setData(data.subtitle);
      CKEDITOR.instances['description'].setData(data.description);
+     CKEDITOR.instances['facts'].setData(data.facts);
+     $('#tags').val(data.tags);
    }
   }
   }
@@ -19,9 +23,22 @@ function loadForm(){
 
 
 <div class="form-group">
+  <label for="title">Title:</label>
   <input type="text" id="title" name="title" class="form-control" placeholder="Project Title" required   >
-  <br>
-  <label for="description">Description</label>
+<br>
+  <label for="slug">Slug:</label>
+  <input type="text" id="slug" name="slug" class="form-control" placeholder="Slug" required   >
+<br>
+  <label for="subtitle">Subtitle:</label>
+  <textarea name="subtitle"></textarea>
+<br>
+  <label for="description">Description:</label>
   <textarea name="description"></textarea>
+<br>
+<label for="facts">Facts:</label>
+<textarea name="facts"></textarea>
+<br>
+  <label for="tags">Tags:</label>
+  <input type="text" id="tags" name="tags" class="form-control" placeholder="Tags"  >
 
 </div>
