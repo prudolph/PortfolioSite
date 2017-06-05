@@ -17,7 +17,7 @@ gulp.task('js', function () {
   return gulp.src([
 			'./app/javascripts/jquery.min.js',
 			'./app/javascripts/bootstrap.js',
-      './javascripts/projects.js',
+      './javascripts/*.js',
 
 		])
 		.pipe(concat('main.js'))

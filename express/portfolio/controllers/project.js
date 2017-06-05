@@ -43,38 +43,6 @@ router.get('/:id', function(req, res, next) {
 });
 
 
-router.get('/add', function(req, res, next) {
-    res.render('add');
-});
 
 
-
-router.post('/add' ,function(req, res, next) {
-  console.log("Adding Project");
-  console.log(req.body);
-
-  var p = new Project({
-    title: req.body['title'],
-    teaser: "Teaser",
-    description: req.body['description']
-  });
-
-  p.save(function (error) {
-    if ( error ) {
-      return res.render('projectAdd', { user: req.user, error_messages: 'Failed to save photo: ' + error.message });
-    }
-    console.log(p.id);
-    res.redirect('/addMedia/');
-  });
-
-});
-
-router.get('/addMedia:id', function(req, res, next) {
-    res.render('addMedia');
-});
-
-router.post('/addMedia' ,function(req, res, next) {
-
-
-});
 module.exports = router;
