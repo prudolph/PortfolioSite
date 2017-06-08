@@ -10,10 +10,11 @@ mongoose.model('Project');
 
 router.get('/', function(req, res, next) {
   //redirect to listing out current projects for now
-  res.redirect('/admin/list');
+  res.redirect('/admin/listProjects');
 });
 
-router.get('/list', function(req, res, next) {
+
+router.get('/listProjects', function(req, res, next) {
   Project.find().
     exec(function (err, entries) {
       if (err) return next(err);
@@ -21,16 +22,14 @@ router.get('/list', function(req, res, next) {
   });
 });
 
+
 router.get('/addProject', function(req, res, next) {
-  res.render('addProject');
+  res.render('projectForm',{"postUrl":"/admin/addProject"});
 });
 
 
 router.post('/addProject' ,function(req, res, next) {
-  console.log("Adding Project");
-  console.log(req.body);
-
-  var p = new Project({
+  var project = new Project({
     title: req.body['title'],
     slug: req.body['slug'],
     subtitle: req.body['subtitle'],
@@ -39,28 +38,57 @@ router.post('/addProject' ,function(req, res, next) {
     tags:req.body['tags']
   });
 
-  p.save(function (error) {
+  project.save(function (error) {
     if ( error ) {
       console.log("Error Saving "+ error.message );
       return res.render('addProject', { error_messages: 'Failed to save Project: ' + error.message });
     }
-    console.log("SAVED "+p.id);
-    res.redirect('/admin/addProject');
+    res.redirect('/admin/editProject/'+project.id);
   });
-
 });
 
 router.get('/editProject/:id', function(req, res, next) {
-
-  Project.find(req.params.id).
-    exec(function (err, entry) {
+  Project.findOne({_id:req.params.id}).
+    exec(function (err, project) {
       if (err){
         console.log("Could not find Projects error: "+ err);
         return next(err);
       }
-      project=entry[0];
+
+      res.render('projectForm', {"data":project,"postUrl":"/admin/editProject"});
+  });
+});
+
+router.post('/editProject/:id' ,function(req, res, next) {
+  console.log("SAVING  Project EDITS");
+  console.log(req.body);
+
+  Project.findOne({_id:req.params.id}).
+    exec(function (err, project) {
+      if (err){
+        console.log("Could not find Projects error: "+ err);
+        return next(err);
+      }
+
+      project.title= req.body['title'],
+      project.slug= req.body['slug'],
+      project.subtitle= req.body['subtitle'],
+      project.description= req.body['description'],
+      project.facts=req.body['facts'],
+      project.tags=req.body['tags']
+
+      project.save(function (error) {
+        if ( error ) {
+          console.log("Error Saving "+ error.message );
+          return res.render('/admin/editProject/'+project.id, { error_messages: 'Failed to save Project: ' + error.message });
+        }
+        res.redirect('/admin/editProject/'+project.id);
+      });
+
+
       res.render('addProject', {"data":project});
   });
+
 
 
 });

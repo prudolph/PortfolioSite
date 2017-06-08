@@ -8,7 +8,7 @@ var config = require('./config/config');
 var mongoose = require('mongoose');
 var hbs = require('hbs');
 
-var index = require('./controllers/index');
+
 var project = require('./controllers/project');
 var admin = require('./controllers/admin');
 
@@ -26,6 +26,7 @@ db.on('error', function () {
 // view engine setup
 
 hbs.registerPartials(__dirname + '/views/partials');
+hbs.registerPartials(__dirname + '/views/partials/forms');
 
 hbs.registerHelper('json', function(context) {
 
@@ -44,9 +45,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', index);
+
 app.use('/projects', project);
 app.use('/admin', admin);
+app.use('/', project);
 
 
 // catch 404 and forward to error handler
