@@ -2,27 +2,34 @@
 .header {
   position: sticky;
   width: 100%;
-  background-color: yellow;
   height: 100px;
-  margin-bottom: 10px; }
+  margin-top: 0;
+  margin-bottom: 50px;
+  background-color: black; }
+  .header h1 {
+    margin: unset;
+    padding-top: 10px;
+    color: white; }
 
 .about {
   color: white;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  margin-bottom: 50px;
+  justify-content: space-between;
+  margin: 50px auto;
   background-color: #393d51; }
   .about .profileImage {
     float: left;
-    width: 45%;
+    width: 100px;
     height: 100px;
-    background-color: red; }
+    background-color: red;
+    margin: 50px 20px; }
   .about .aboutText {
-    float: right;
-    width: 45%;
+    margin: 50px 20px;
+    width: 40%;
     font-family: 'Montserrat Light', sans-serif;
-    font-size: 10px; }
+    font-size: 18px;
+    line-height: 30px; }
 
 .projectsContainer {
   background-color: #2e3141;
@@ -67,26 +74,30 @@
   .projectDetail .titleContainer {
     width: 100%;
     height: 500px;
-    background-color: tomato; }
+    background-color: tomato;
+    position: relative; }
     .projectDetail .titleContainer .hero {
       width: 100%;
-      height: 100%; }
+      height: 100%;
+      object-fit: cover; }
     .projectDetail .titleContainer .overlay {
-      position: relative;
-      top: -100%;
-      background-color: black;
+      position: absolute;
+      top: 0;
       width: 100%;
       height: 100%;
+      background-color: black;
       opacity: .50; }
     .projectDetail .titleContainer .title {
       position: absolute;
-      width: 50%;
-      font-size: 30px;
       z-index: 1;
-      left: 25%;
-      top: 12.5%;
-      text-transform: uppercase; }
+      left: 50%;
+      transform: translateX(-50%);
+      top: 25%;
+      text-transform: uppercase;
+      font-size: 30px; }
       .projectDetail .titleContainer .title h1 {
+        display: flex;
+        align-items: center;
         font-size: 40px; }
       .projectDetail .titleContainer .title hr {
         opacity: .25; }
@@ -117,6 +128,6 @@
   color: white; }
 
 body {
-  padding-top: 70px;
-  padding-bottom: 40px;
+  margin: unset;
+  line-height: 22px;
   background-color: #2e3141; }
