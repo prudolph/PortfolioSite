@@ -1,6 +1,92 @@
 
 .projectDetail{
-  width:100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   height:100%;
-  background-color: tomato;
+  color:white;
+  font-family:'Montserrat Light', sans-serif;
+  font-size: 10px;
+  margin:auto 25px;
+
+  .titleContainer{
+    width: 100%;
+    height:500px;
+    background-color: tomato;
+
+    .hero{
+      width: 100%;
+      height:100%;
+    }
+
+    .overlay{
+
+      position: relative;
+      top:-100%;
+      background-color: black;
+      width: 100%;
+      height: 100%;
+      opacity:.50;
+    }
+
+    .title{
+
+      position: absolute;
+      width:50%;
+      font-size: 30px;
+      z-index: 1;
+      left:25%;
+      top:12.5%;
+
+      text-transform: uppercase;
+
+      h1{
+            font-size: 40px;
+      }
+      hr{
+        opacity: .25;
+      }
+    }
+  }
+
+  .content{
+    display: flex;
+    justify-content: space-between;
+    margin: 50px 10px;
+
+
+    .description{
+      width:75%;
+
+      h1{
+        font-size: 18px;
+        text-transform: uppercase;
+
+      }
+      p{
+        line-height: 26px;
+        font-size: 16px;
+
+      }
+    }
+
+    .facts{
+      background-color: gray;
+      h1{
+        font-size: 16px;
+        text-transform: uppercase;
+      }
+
+      p{
+        font-size: 14px;
+      }
+    }
+
+  }
+
+  .media{
+    width: 100%;
+    height:500px;
+  }
 }

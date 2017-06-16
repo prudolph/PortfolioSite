@@ -1,4 +1,57 @@
 .projectDetail {
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   height: 100%;
-  background-color: tomato; }
+  color: white;
+  font-family: 'Montserrat Light', sans-serif;
+  font-size: 10px;
+  margin: auto 25px; }
+  .projectDetail .titleContainer {
+    width: 100%;
+    height: 500px;
+    background-color: tomato; }
+    .projectDetail .titleContainer .hero {
+      width: 100%;
+      height: 100%; }
+    .projectDetail .titleContainer .overlay {
+      position: relative;
+      top: -100%;
+      background-color: black;
+      width: 100%;
+      height: 100%;
+      opacity: .50; }
+    .projectDetail .titleContainer .title {
+      position: absolute;
+      width: 50%;
+      font-size: 30px;
+      z-index: 1;
+      left: 25%;
+      top: 12.5%;
+      text-transform: uppercase; }
+      .projectDetail .titleContainer .title h1 {
+        font-size: 40px; }
+      .projectDetail .titleContainer .title hr {
+        opacity: .25; }
+  .projectDetail .content {
+    display: flex;
+    justify-content: space-between;
+    margin: 50px 10px; }
+    .projectDetail .content .description {
+      width: 75%; }
+      .projectDetail .content .description h1 {
+        font-size: 18px;
+        text-transform: uppercase; }
+      .projectDetail .content .description p {
+        line-height: 26px;
+        font-size: 16px; }
+    .projectDetail .content .facts {
+      background-color: gray; }
+      .projectDetail .content .facts h1 {
+        font-size: 16px;
+        text-transform: uppercase; }
+      .projectDetail .content .facts p {
+        font-size: 14px; }
+  .projectDetail .media {
+    width: 100%;
+    height: 500px; }

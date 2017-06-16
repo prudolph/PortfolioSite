@@ -1,21 +1,43 @@
 
   <div class="projectDetail" >
-    <img class="banner" src="/images/sample.jpg">
 
-    <div class="title">
-      <h1>{{title}}</h1>
+    <div class="titleContainer">
+
+      <div class="title">
+        <h1>{{title}}</h1>
+        <hr>
+      </div>
+
+      <img class="hero" src="/images/sample.jpg">
+      <div class="overlay"></div>
+
+
+
+    </div>
+    <div class="content">
+
+      <div class="description">
+        <h1>Project Details</h1>
+        <hr>
+        <p>{{{description}}}</p>
+      </div>
+
+      <div class="facts">
+        <h1>Facts</h1>
+
+        facts:{{{ facts }}}
+      </div>
+
+
+
     </div>
 
-    <div class="description">
-      <h2>{{{description}}}</h2>
-    </div>
+    <div class="media">
 
-
-    <div class="facts">
-      facts:{{{ facts }}}
     </div>
 
     <div class="tags">
       tags:{{{tags}}}
     </div>
+
   </div>
