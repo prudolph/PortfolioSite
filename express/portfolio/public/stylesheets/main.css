@@ -25,7 +25,8 @@
     width: 200px;
     height: 200px;
     background-color: red;
-    margin: 50px 20px; }
+    margin: 50px 20px;
+    border-radius: 50%; }
   .about .aboutText {
     margin: 50px 20px;
     font-family: 'Montserrat Light', sans-serif;
