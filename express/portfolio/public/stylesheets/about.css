@@ -1,19 +1,16 @@
 .about {
   color: white;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin: 50px auto;
+  align-content: stretch;
+  margin-bottom: 50px;
   background-color: #393d51; }
   .about .profileImage {
-    float: left;
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 200px;
     background-color: red;
     margin: 50px 20px; }
   .about .aboutText {
     margin: 50px 20px;
-    width: 40%;
     font-family: 'Montserrat Light', sans-serif;
     font-size: 18px;
     line-height: 30px; }
