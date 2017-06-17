@@ -6,7 +6,7 @@ var config = {
   development: {
     root: rootPath,
     app: {
-      name: 'Projects-DEV'
+      name: 'Portfolio-Dev'
     },
     port: process.env.PORT || 3000,
     db: 'mongodb://localhost/projects'
@@ -15,7 +15,7 @@ var config = {
   test: {
     root: rootPath,
     app: {
-      name: 'Projects-TEST'
+      name: 'Portfolio--TEST'
     },
     port: process.env.PORT || 3000,
     db: 'mongodb://localhost/projects'
@@ -24,7 +24,7 @@ var config = {
   production: {
     root: rootPath,
     app: {
-      name: 'Projects-PROD'
+      name: 'Portfolio-PROD'
     },
     port: process.env.PORT || 3000,
     db: process.env.MONGODB_URI || 'mongodb://localhost/projects'
