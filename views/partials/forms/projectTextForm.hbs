@@ -8,13 +8,11 @@ window.addEventListener('load',loadForm,false);
 function loadForm(){
   CKEDITOR.replace( 'description' );
   CKEDITOR.replace( 'subtitle' );
-    CKEDITOR.replace( 'facts' );
-  var data = {{{ data}}};
-  console.log("Data :");
-  console.log(data);
-
-
-
+  CKEDITOR.replace( 'facts' );
+  var data={};
+  {{#if data}}
+   data = {{{data}}};
+  {{/if}}
 
      $('#title').val(data.title);
      $('#slug').val(data.slug);

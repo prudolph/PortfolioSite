@@ -8,7 +8,7 @@ var config = require('./config/config');
 var mongoose = require('mongoose');
 var hbs = require('hbs');
 
-
+  require('dotenv').load();
 var project = require('./controllers/project');
 var admin = require('./controllers/admin');
 

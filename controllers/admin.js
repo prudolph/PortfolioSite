@@ -4,6 +4,7 @@ var router = express.Router();
 var mongoose = require('mongoose');//.set('debug', true),
 //var passport = require('passport');
 
+require('dotenv').load();
 var Project = require('./../models/project.js');
 mongoose.model('Project');
 
@@ -87,7 +88,6 @@ router.post('/editProject/:id' ,function(req, res, next) {
         res.redirect('/admin/listProjects/');
       });
 
-
       res.render('addProject', {"data":project});
   });
 
@@ -95,13 +95,5 @@ router.post('/editProject/:id' ,function(req, res, next) {
 
 });
 
-router.get('/addMedia:id', function(req, res, next) {
-    res.render('addMedia');
-});
-
-router.post('/addMedia' ,function(req, res, next) {
-
-
-});
 
 module.exports = router;
