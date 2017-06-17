@@ -48,6 +48,7 @@ router.post('/addProject' ,function(req, res, next) {
 });
 
 router.get('/editProject/:id', function(req, res, next) {
+
   Project.findOne({_id:req.params.id}).
     exec(function (err, project) {
       if (err){
@@ -55,7 +56,7 @@ router.get('/editProject/:id', function(req, res, next) {
         return next(err);
       }
 
-      res.render('projectForm', {"data":project,"postUrl":"/admin/editProject"});
+      res.render('projectForm', {"data":JSON.stringify(project),"postUrl":"/admin/editProject/"+req.params.id});
   });
 });
 
@@ -82,7 +83,8 @@ router.post('/editProject/:id' ,function(req, res, next) {
           console.log("Error Saving "+ error.message );
           return res.render('/admin/editProject/'+project.id, { error_messages: 'Failed to save Project: ' + error.message });
         }
-        res.redirect('/admin/editProject/'+project.id);
+
+        res.redirect('/admin/listProjects/');
       });
 
 

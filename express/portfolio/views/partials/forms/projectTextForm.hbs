@@ -3,23 +3,26 @@
 <script src="/js/ckeditor/ckeditor.js"></script>
 
 <script >
+
 window.addEventListener('load',loadForm,false);
 function loadForm(){
   CKEDITOR.replace( 'description' );
   CKEDITOR.replace( 'subtitle' );
-  var dataString = '{{{json data}}}';
+    CKEDITOR.replace( 'facts' );
+  var data = {{{ data}}};
+  console.log("Data :");
+  console.log(data);
 
-  if(dataString.length){
-   var data = JSON.parse(dataString);
-   if(data){
+
+
+
      $('#title').val(data.title);
      $('#slug').val(data.slug);
      CKEDITOR.instances['subtitle'].setData(data.subtitle);
      CKEDITOR.instances['description'].setData(data.description);
      CKEDITOR.instances['facts'].setData(data.facts);
      $('#tags').val(data.tags);
-   }
-  }
+
   }
 </script>
 
