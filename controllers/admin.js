@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var AWS = require('aws-sdk');
 
 var mongoose = require('mongoose');//.set('debug', true),
 //var passport = require('passport');
@@ -98,35 +99,56 @@ router.post('/editProject/:id' ,function(req, res, next) {
 
 
 router.get('/imgUploadTest', (req, res) => {
+  console.log("s3 key", process.env.S3_KEY);
+  console.log("s3 secret", process.env.S3_SECRET);
   res.render('imgUploadTest', {"postUrl":"/admin/editProject/"});
 });
 
 router.get('/sign-s3', (req, res) => {
 
   console.log('Sign For S3 ');
-  const s3 = new aws.S3();
+    var credParams={
+
+      secretAccessKey:process.env.S3_SECRET,
+      accessKeyId:process.env.S3_KEY,
+      region:process.env.S3_REGION
+      }
+
+
+  var s3 = new AWS.S3(credParams);
+
   const fileName = req.query['file-name'];
   const fileType = req.query['file-type'];
   const s3Params = {
-    Bucket: S3_BUCKET,
+    Bucket: process.env.S3_BUCKET,
     Key: fileName,
     Expires: 60,
     ContentType: fileType,
     ACL: 'public-read'
   };
+  console.log("params", s3Params);
+  s3.getSignedUrl('putObject', s3Params, (err, url) => {
+    console.log("GET SIGNED URL    ");
+      if(err){
+        console.log("ERROR SIGNING KEY ", err);
+        return res.end();
+      }else{
 
-  s3.getSignedUrl('putObject', s3Params, (err, data) => {
-    if(err){
-      console.log(err);
-      return res.end();
-    }
-    const returnData = {
-      signedRequest: data,
-      url: `https://${S3_BUCKET}.s3.amazonaws.com/${fileName}`
-    };
-    res.write(JSON.stringify(returnData));
-    res.end();
-  });
+        console.log('The URL is', url);
+        const returnData = {
+          signedRequest: url,
+          url: `https://${process.env.S3_BUCKET}.s3.amazonaws.com/${fileName}`
+        };
+
+        console.log("Return Data :", returnData);
+        res.header("Access-Control-Allow-Origin", "*");
+         res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+
+        res.write(JSON.stringify(returnData));
+        res.end();
+
+      }
+    });
 });
 
 module.exports = router;
