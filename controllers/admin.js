@@ -96,6 +96,11 @@ router.post('/editProject/:id' ,function(req, res, next) {
 });
 
 
+
+router.get('/imgUploadTest', (req, res) => {
+  res.render('imgUploadTest', {"postUrl":"/admin/editProject/"});
+});
+
 router.get('/sign-s3', (req, res) => {
 
   console.log('Sign For S3 ');
