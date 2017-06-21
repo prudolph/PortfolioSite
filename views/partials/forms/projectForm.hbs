@@ -1,0 +1,135 @@
+
+
+<script src="/js/ckeditor/ckeditor.js"></script>
+
+<script >
+var currentFile;
+
+
+window.addEventListener('load',load,false);
+
+  function uploadFile(file, signedRequest, url){
+    const xhr = new XMLHttpRequest();
+    xhr.open('PUT', signedRequest);
+    xhr.onreadystatechange = () => {
+      if(xhr.readyState === 4){
+        if(xhr.status === 200){
+          console.log("Uploaded file", file );
+
+          document.getElementById('preview').src =url;
+          clearInputFile();
+
+          $( "#uploadedMedia" ).append(`<input type="text" id="mediaUrls" name="mediaUrls" value="${url}"></input>` );
+        }
+        else{
+          alert('Could not upload file.');
+        }
+      }
+    };
+    xhr.send(file);
+  }
+
+  function getSignedRequest(folder,file){
+
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', `/admin/sign-s3?file-name=${folder}/${file.name}&file-type=${file.type}`);
+    xhr.onreadystatechange = () => {
+      if(xhr.readyState === 4){
+        if(xhr.status === 200){
+          const response = JSON.parse(xhr.responseText);
+          uploadFile(file, response.signedRequest, response.url);
+        }
+        else{
+          alert('Could not get signed URL.');
+        }
+      }
+    };
+    xhr.send();
+  }
+
+  function handleFileSelect(event){
+
+        var tgt = event.target || window.event.srcElement,
+        files = tgt.files;
+        currentFile = files[0];
+
+        if (FileReader && files && files.length) {
+            var reader = new FileReader();
+            reader.onload = function () {
+               $('#preview').attr('src', reader.result);
+            }
+            reader.readAsDataURL(currentFile);
+        }
+        // Not supported
+        else {
+            // fallback -- perhaps submit the input to an iframe and temporarily store
+            // them on the server until the user's session ends.
+            console.log("Filereader not supported");
+        }
+        var slug =  $('#slug').val();
+        getSignedRequest(slug,currentFile);
+
+       };
+
+
+function clearInputFile(){
+
+  console.log("Clear File");
+  currentFile=null;
+  $('#preview').attr('src', null);
+  $("#media-input").val("");
+}
+
+function load(){
+
+
+  CKEDITOR.replace( 'description' );
+  CKEDITOR.replace( 'subtitle' );
+  CKEDITOR.replace( 'facts' );
+  var data={};
+  {{#if data}}
+   data = {{{data}}};
+   console.log("DATA ",data);
+  {{/if}}
+
+     $('#title').val(data.title);
+     $('#slug').val(data.slug);
+     CKEDITOR.instances['subtitle'].setData(data.subtitle);
+     CKEDITOR.instances['description'].setData(data.description);
+     CKEDITOR.instances['facts'].setData(data.facts);
+     $('#tags').val(data.tags);
+
+  }
+
+
+
+</script>
+
+
+<div class="form-group">
+  <label for="title">Title:</label>
+  <input type="text" id="title" name="title" class="form-control" placeholder="Project Title" required   >
+<br>
+  <label for="slug">Slug:</label>
+  <input type="text" id="slug" name="slug" class="form-control" placeholder="Slug" required   >
+<br>
+  <label for="subtitle">Subtitle:</label>
+  <textarea name="subtitle"></textarea>
+<br>
+  <label for="description">Description:</label>
+  <textarea name="description"></textarea>
+<br>
+  <label for="facts">Facts:</label>
+  <textarea name="facts"></textarea>
+<br>
+  <label for="tags">Tags:</label>
+  <input type="text" id="tags" name="tags" class="form-control" placeholder="Tags"  >
+</div>
+<div class="media" id="uploadedMedia">
+
+</div>
+
+<div class="form-group" id="media">
+  <img id="preview"   style="width:100px; height:100px;">
+  <input type="file" id="media-input" onchange="handleFileSelect(this)" >
+</div>

@@ -37,7 +37,8 @@ router.post('/addProject' ,function(req, res, next) {
     subtitle: req.body['subtitle'],
     description: req.body['description'],
     facts:req.body['facts'],
-    tags:req.body['tags']
+    tags:req.body['tags'],
+    mediaUrls:req.body['mediaUrls']
   });
 
   project.save(function (error) {
@@ -77,7 +78,9 @@ router.post('/editProject/:id' ,function(req, res, next) {
       project.subtitle= req.body['subtitle'],
       project.description= req.body['description'],
       project.facts=req.body['facts'],
-      project.tags=req.body['tags']
+      project.tags=req.body['tags'],
+      project.mediaUrls=req.body['mediaUrls']
+
 
       project.save(function (error) {
         if ( error ) {
