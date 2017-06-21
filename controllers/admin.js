@@ -63,7 +63,6 @@ router.get('/editProject/:id', function(req, res, next) {
 });
 
 router.post('/editProject/:id' ,function(req, res, next) {
-  console.log("SAVING  Project EDITS");
   console.log(req.body);
 
   Project.findOne({_id:req.params.id}).
@@ -99,6 +98,8 @@ router.post('/editProject/:id' ,function(req, res, next) {
 
 
 router.get('/imgUploadTest', (req, res) => {
+  console.log("s3 key", process.env.S3_KEY);
+  console.log("s3 secret", process.env.S3_SECRET);
   res.render('imgUploadTest', {"postUrl":"/admin/editProject/"});
 });
 
@@ -106,11 +107,10 @@ router.get('/sign-s3', (req, res) => {
 
   console.log('Sign For S3 ');
     var credParams={
-
       secretAccessKey:process.env.S3_SECRET,
       accessKeyId:process.env.S3_KEY,
       region:process.env.S3_REGION
-      }
+    }
 
 
   var s3 = new AWS.S3(credParams);
@@ -135,10 +135,11 @@ router.get('/sign-s3', (req, res) => {
         console.log('The URL is', url);
         const returnData = {
           signedRequest: url,
-          url: `paulportfoliostorage.s3-us-west-2.amazonaws.com`
-        };
+          //https://s3-us-west-2.amazonaws.com/paulportfoliostorage/IMG_2500.JPG
 
-        console.log("Return Data :", returnData);
+          url: `https://s3-us-west-2.amazonaws.com/${process.env.S3_BUCKET}/${fileName}`
+
+        };
 
         res.write(JSON.stringify(returnData));
         res.end();

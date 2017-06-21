@@ -8,7 +8,9 @@ var ProjectSchema = new Schema({
   description: { type: String, required: true},
   installDate: { type: Date, required: false, default: Date.now },
   facts: { type: String, required: false},
-  tags: { type: String, required: false}
+  tags: { type: String, required: false},
+  mediaUrls: [{type: String}],
+  heroUrl:{type: String,required:false}
 });
 
 module.exports = mongoose.model('Project', ProjectSchema);
