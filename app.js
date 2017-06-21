@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var config = require('./config/config');
 var mongoose = require('mongoose');
 var hbs = require('hbs');
+var cors = require('cors');
 
 require('dotenv').load();
 var project = require('./controllers/project');
@@ -14,6 +15,8 @@ var admin = require('./controllers/admin');
 
 var app = express();
 
+
+app.use(cors({origin: 'http://localhost:3000'}));
 mongoose.Promise = global.Promise;
 
 mongoose.connect(config.db);

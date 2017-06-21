@@ -99,8 +99,6 @@ router.post('/editProject/:id' ,function(req, res, next) {
 
 
 router.get('/imgUploadTest', (req, res) => {
-  console.log("s3 key", process.env.S3_KEY);
-  console.log("s3 secret", process.env.S3_SECRET);
   res.render('imgUploadTest', {"postUrl":"/admin/editProject/"});
 });
 
@@ -137,12 +135,10 @@ router.get('/sign-s3', (req, res) => {
         console.log('The URL is', url);
         const returnData = {
           signedRequest: url,
-          url: `https://${process.env.S3_BUCKET}.s3.amazonaws.com/${fileName}`
+          url: `paulportfoliostorage.s3-us-west-2.amazonaws.com`
         };
 
         console.log("Return Data :", returnData);
-        res.header("Access-Control-Allow-Origin", "*");
-         res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 
         res.write(JSON.stringify(returnData));
         res.end();
