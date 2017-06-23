@@ -9,6 +9,19 @@ var mongoose = require('mongoose');
 var hbs = require('hbs');
 var cors = require('cors');
 
+var passport = require('passport')
+var BasicStrategy = require('passport-http').BasicStrategy
+
+passport.use(new BasicStrategy(
+  function(username, password, done) {
+    if (username.valueOf() === 'prudolph' &&
+      password.valueOf() === 'Duc887547ie')
+      return done(null, true);
+    else
+      return done(null, false);
+  }
+));
+
 require('dotenv').load();
 var project = require('./controllers/project');
 var admin = require('./controllers/admin');
@@ -45,10 +58,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(passport.initialize());
 
 app.use('/projects', project);
-app.use('/admin', admin);
+app.use('/admin', passport.authenticate('basic', { session: false }),admin);
 app.use('/', project);
 
 
@@ -58,6 +71,7 @@ app.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
+
 
 // error handler
 app.use(function(err, req, res, next) {

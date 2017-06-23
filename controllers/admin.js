@@ -1,22 +1,31 @@
 var express = require('express');
 var router = express.Router();
 var AWS = require('aws-sdk');
+var passport = require('passport')
+var BasicStrategy = require('passport-http').BasicStrategy
+
 
 var mongoose = require('mongoose');//.set('debug', true),
 //var passport = require('passport');
 
 require('dotenv').load();
+
+
+
 var Project = require('./../models/project.js');
 mongoose.model('Project');
 
 
-router.get('/', function(req, res, next) {
+
+
+
+router.get('/',passport.authenticate('basic', { session: false }), function(req, res, next) {
   //redirect to listing out current projects for now
   res.redirect('/admin/listProjects');
 });
 
 
-router.get('/listProjects', function(req, res, next) {
+router.get('/listProjects', passport.authenticate('basic', { session: false }),function(req, res, next) {
   Project.find().
     exec(function (err, entries) {
       if (err) return next(err);
