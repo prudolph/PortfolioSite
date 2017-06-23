@@ -125,8 +125,12 @@
       .projectDetail .content .facts p {
         font-size: 14px; }
   .projectDetail .media {
-    width: 100%;
-    height: 500px; }
+    display: flex;
+    flex-flow: row wrap; }
+    .projectDetail .media img {
+      width: 45%;
+      height: 25%;
+      margin: 2%; }
 
 .upload {
   color: white; }

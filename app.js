@@ -32,9 +32,7 @@ hbs.registerPartials(__dirname + '/views/partials');
 hbs.registerPartials(__dirname + '/views/partials/forms');
 
 hbs.registerHelper('json', function(context) {
-
       return JSON.stringify(context);
-
 });
 
 app.set('views', path.join(__dirname, 'views'));

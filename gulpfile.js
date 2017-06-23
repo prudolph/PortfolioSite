@@ -5,6 +5,9 @@ var gulp = require('gulp'),
   sass = require('gulp-sass'),
   concat = require('gulp-concat'),
  print = require('gulp-print');
+
+
+
 gulp.task('sass', function () {
   gulp.src('stylesheets/*.scss')
     .pipe(plumber())
@@ -29,6 +32,8 @@ gulp.task('js', function () {
 gulp.task('watch', function() {
   gulp.watch('stylesheets/*.scss', ['sass']);
   gulp.watch('./app/javascripts/**/*.js', ['js']);
+  gulp.watch('./app/javascripts/**/*.js', ['js']);
+
 });
 
 gulp.task('develop', function () {

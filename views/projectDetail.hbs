@@ -11,11 +11,8 @@
       <img class="hero" src="/images/sample.jpg">
       <div class="overlay"></div>
 
-
-
     </div>
     <div class="content">
-
       <div class="description">
         <h1>Project Details</h1>
         <hr>
@@ -28,23 +25,20 @@
         facts:{{{ facts }}}
       </div>
 
-
-
     </div>
 
     <div class="media">
 
+    </div>
+
+    <div class="media">
+      {{#each mediaUrls}}
+        <img src ="{{this}}"></img>
+      {{/each}}
     </div>
 
     <div class="tags">
       tags:{{{tags}}}
-    </div>
-
-{{data}}
-    <div class="media">
-      {{#each mediaUrls}}
-        <img style="width:100px; height:100px;" src ="{{this}}">img</img>
-      {{/each}}
     </div>
 
 

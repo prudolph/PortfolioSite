@@ -7,7 +7,6 @@ var currentFile;
 
 
 window.addEventListener('load',load,false);
-
   function uploadFile(file, signedRequest, url){
     const xhr = new XMLHttpRequest();
     xhr.open('PUT', signedRequest);
@@ -18,8 +17,7 @@ window.addEventListener('load',load,false);
 
           document.getElementById('preview').src =url;
           clearInputFile();
-
-          $( "#uploadedMedia" ).append(`<input type="text" id="mediaUrls" name="mediaUrls" value="${url}"></input>` );
+          getMediaItems();
         }
         else{
           alert('Could not upload file.');
@@ -99,8 +97,22 @@ function load(){
      CKEDITOR.instances['facts'].setData(data.facts);
      $('#tags').val(data.tags);
 
+     getMediaItems();
   }
 
+function getMediaItems(){
+  console.log("Get Media Items");
+  $.getJSON("/admin/getProjectMedia/"+ $('#slug').val(),function(json){
+    console.log(json);
+      $( "#uploadedMedia" ).empty();
+    $.each(json, function(i, item) {
+      $( "#uploadedMedia" ).append(`<img src="${item}" style="width:100px; height:100px;"> <input type="hidden" id="mediaUrls" name="mediaUrls" value="${item}"></input>` );
+
+    });
+
+
+  });
+}
 
 
 </script>

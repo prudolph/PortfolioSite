@@ -106,6 +106,41 @@ router.get('/imgUploadTest', (req, res) => {
   res.render('imgUploadTest', {"postUrl":"/admin/editProject/"});
 });
 
+
+router.get('/getProjectMedia/:slug', (req, res) => {
+  var credParams={
+    secretAccessKey:process.env.S3_SECRET,
+    accessKeyId:process.env.S3_KEY,
+    region:process.env.S3_REGION
+  }
+  var s3 = new AWS.S3(credParams);
+
+
+  var params = {
+    Bucket: process.env.S3_BUCKET,
+    Prefix:req.params.slug
+  };
+
+  s3.listObjectsV2(params, function(err, data) {
+    if (err){ console.log(err, err.stack); // an error occurred
+        res.end();
+    }
+    else   {
+
+      var keys=[];
+       for(var item in data['Contents']){
+         var key = data['Contents'][item].Key;
+         keys.push(`https://s3-us-west-2.amazonaws.com/${process.env.S3_BUCKET}/`+key);
+       }
+       console.log(keys);
+       res.write(JSON.stringify(keys));
+       res.end();
+  }
+  });
+
+
+});
+
 router.get('/sign-s3', (req, res) => {
 
   console.log('Sign For S3 ');
@@ -127,7 +162,6 @@ router.get('/sign-s3', (req, res) => {
     ContentType: fileType,
     ACL: 'public-read'
   };
-  console.log("params", s3Params);
   s3.getSignedUrl('putObject', s3Params, (err, url) => {
     console.log("GET SIGNED URL    ");
       if(err){
