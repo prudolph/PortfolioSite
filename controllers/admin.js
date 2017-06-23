@@ -64,7 +64,6 @@ router.get('/editProject/:id', function(req, res, next) {
 });
 
 router.post('/editProject/:id' ,function(req, res, next) {
-  console.log(req.body);
 
   Project.findOne({_id:req.params.id}).
     exec(function (err, project) {
@@ -72,26 +71,43 @@ router.post('/editProject/:id' ,function(req, res, next) {
         console.log("Could not find Projects error: "+ err);
         return next(err);
       }
+      console.log("\n\nEDIT PORJECT:: ", req.body);
+      console.log(req.body['mediaUrls']);
 
-      project.title= req.body['title'],
-      project.slug= req.body['slug'],
-      project.subtitle= req.body['subtitle'],
-      project.description= req.body['description'],
-      project.facts=req.body['facts'],
-      project.tags=req.body['tags'],
-      project.mediaUrls=req.body['mediaUrls']
+      var updatedHeroUrl ="";
+      var updatedMediaUrls=[];
 
+      for (var i=0;i<req.body['mediaUrls'].length;i++){
+        var url = req.body['mediaUrls'][i];
+        console.log("url ", url);
+        if(url.includes("hero")){
+          updatedHeroUrl=url;
+        }else{
+          updatedMediaUrls.push(url);
+        }
+      }
+
+      console.log("updatedHeroUrl: ", updatedHeroUrl);
+      console.log("updatedMediaUrls",updatedMediaUrls);
+
+      project.title= req.body['title'];
+      project.slug= req.body['slug'];
+      project.subtitle= req.body['subtitle'];
+      project.description= req.body['description'];
+      project.facts=req.body['facts'];
+      project.tags=req.body['tags'];
+      project.heroUrl=updatedHeroUrl;
+      project.mediaUrls=updatedMediaUrls;
 
       project.save(function (error) {
         if ( error ) {
           console.log("Error Saving "+ error.message );
           return res.render('/admin/editProject/'+project.id, { error_messages: 'Failed to save Project: ' + error.message });
         }
-
         res.redirect('/admin/listProjects/');
       });
 
-      res.render('addProject', {"data":project});
+      //res.render('addProject', {"data":project});
   });
 
 

@@ -13,6 +13,7 @@
     background-color: tomato;
     position: relative; }
     .projectDetail .titleContainer .hero {
+      border-style: none;
       width: 100%;
       height: 100%;
       object-fit: cover; }
@@ -50,7 +51,8 @@
         line-height: 26px;
         font-size: 16px; }
     .projectDetail .content .facts {
-      background-color: gray; }
+      background-color: gray;
+      height: 200px; }
       .projectDetail .content .facts h1 {
         font-size: 16px;
         text-transform: uppercase; }
