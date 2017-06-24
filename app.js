@@ -11,6 +11,8 @@ var cors = require('cors');
 
 var passport = require('passport')
 var BasicStrategy = require('passport-http').BasicStrategy
+var favicon = require('serve-favicon');
+
 
 passport.use(new BasicStrategy(
   function(username, password, done) {
@@ -66,10 +68,13 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(passport.initialize());
 
+app.use(favicon(__dirname + '/public/images/favicon.ico'));
+
+app.use('/projects', project);
+
 app.use('/projects', project);
 app.use('/admin', passport.authenticate('basic', { session: false }),admin);
 app.use('/', project);
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
