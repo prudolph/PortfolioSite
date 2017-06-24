@@ -3,13 +3,9 @@
 
 <div class="upload">
   <form id="upload-form" action={{postUrl}}  method="post">
-    {{#equals form "bio"}}
-      {{> bioForm}}
-    {{else}}
-      {{> projectForm}}
-    {{/equals}}
+    {{> projectForm}}
     <button class="btn btn-lg btn-primary" type="submit">Save</button>
   </form>
 
-
+  
 </div>

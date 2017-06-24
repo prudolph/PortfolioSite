@@ -47,6 +47,12 @@ hbs.registerPartials(__dirname + '/views/partials/forms');
 hbs.registerHelper('json', function(context) {
       return JSON.stringify(context);
 });
+hbs.registerHelper('equals', function(v1, v2, options) {
+  if(v1 === v2) {
+    return options.fn(this);
+  }
+  return options.inverse(this);
+});
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');

@@ -13,10 +13,9 @@ require('dotenv').load();
 
 
 var Project = require('./../models/project.js');
+var Bio = require('./../models/bio.js');
+
 mongoose.model('Project');
-
-
-
 
 
 router.get('/',passport.authenticate('basic', { session: false }), function(req, res, next) {
@@ -68,7 +67,7 @@ router.get('/editProject/:id', function(req, res, next) {
         return next(err);
       }
 
-      res.render('projectForm', {"data":JSON.stringify(project),"postUrl":"/admin/editProject/"+req.params.id});
+      res.render('projectForm', {"data":JSON.stringify(project),"postUrl":"/admin/editProject/"+req.params.id,"form":"project"});
   });
 });
 
@@ -125,11 +124,50 @@ router.post('/editProject/:id' ,function(req, res, next) {
 
 
 
-router.get('/imgUploadTest', (req, res) => {
-  console.log("s3 key", process.env.S3_KEY);
-  console.log("s3 secret", process.env.S3_SECRET);
-  res.render('imgUploadTest', {"postUrl":"/admin/editProject/"});
+
+router.get('/bio/', function(req, res, next) {
+//{_id:req.params.id}
+  Bio.findOne({_id:0}).
+    exec(function (err, bio) {
+      if (err){
+        console.log("Could not find Bio, create new: "+ err);
+        res.render('projectForm', {"postUrl":"/admin/bio/","form":"bio"});
+      }
+      console.log("bio",bio);
+      res.render('projectForm', {"data":JSON.stringify(bio),"postUrl":"/admin/bio/","form":"bio"});
+  });
 });
+
+
+router.post('/bio/' ,function(req, res, next) {
+  console.log("POSTING BIO");
+  console.log(req.body);
+
+  var bio;
+  Bio.findOne({_id:0}).
+    exec(function (err, foundBio) {
+      if (err){
+        bio= new Bio({_id:0});
+      }else{
+        bio=foundBio;
+      }
+
+      bio.description=req.body['description'];
+      bio.imageUrl=req.body['mediaUrls'];
+
+      bio.save(function (error) {
+        if ( error ) {
+          console.log("Error Saving "+ error.message );
+          return res.render('/admin/bio/', { error_messages: 'Failed to save Project: ' + error.message });
+        }
+        console.log("Bio Saved");
+        res.redirect('/admin/bio/');
+      });
+    });
+
+
+});
+
 
 
 router.get('/getProjectMedia/:slug', (req, res) => {

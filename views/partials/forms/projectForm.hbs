@@ -1,88 +1,6 @@
 
-
-<script src="/js/ckeditor/ckeditor.js"></script>
-
-<script >
-var currentFile;
-
-
-window.addEventListener('load',load,false);
-  function uploadFile(file, signedRequest, url){
-    const xhr = new XMLHttpRequest();
-    xhr.open('PUT', signedRequest);
-    xhr.onreadystatechange = () => {
-      if(xhr.readyState === 4){
-        if(xhr.status === 200){
-          console.log("Uploaded file", file );
-
-          document.getElementById('preview').src =url;
-          clearInputFile();
-          $( "#uploadedMedia" ).append(`<img  src="${url}" style="width:100px; height:100px;" onclick=this.remove()> <input type="hidden" id="mediaUrls" name="mediaUrls" value="${url}"></input>` );
-
-        }
-        else{
-          alert('Could not upload file.');
-        }
-      }
-    };
-    xhr.send(file);
-  }
-
-  function getSignedRequest(folder,file){
-
-    const xhr = new XMLHttpRequest();
-    xhr.open('GET', `/admin/sign-s3?file-name=${folder}/${file.name}&file-type=${file.type}`);
-    xhr.onreadystatechange = () => {
-      if(xhr.readyState === 4){
-        if(xhr.status === 200){
-          const response = JSON.parse(xhr.responseText);
-          uploadFile(file, response.signedRequest, response.url);
-        }
-        else{
-          alert('Could not get signed URL.');
-        }
-      }
-    };
-    xhr.send();
-  }
-
-  function handleFileSelect(event){
-
-        var tgt = event.target || window.event.srcElement,
-        files = tgt.files;
-        currentFile = files[0];
-
-        if (FileReader && files && files.length) {
-            var reader = new FileReader();
-            reader.onload = function () {
-               $('#preview').attr('src', reader.result);
-            }
-            reader.readAsDataURL(currentFile);
-        }
-        // Not supported
-        else {
-            // fallback -- perhaps submit the input to an iframe and temporarily store
-            // them on the server until the user's session ends.
-            console.log("Filereader not supported");
-        }
-        var slug =  $('#slug').val();
-        if ($('#hero').is(":checked")){
-          slug+="/hero";
-        }
-
-        getSignedRequest(slug,currentFile);
-
-       };
-
-
-function clearInputFile(){
-
-  console.log("Clear File");
-  currentFile=null;
-  $('#preview').attr('src', null);
-  $("#media-input").val("");
-}
-
+{{> formScripts }}
+<script>
 function load(){
 
 
@@ -114,8 +32,6 @@ function load(){
   }
 
 </script>
-
-
 <div class="form-group">
   <label for="title">Title:</label>
   <input type="text" id="title" name="title" class="form-control" placeholder="Project Title" required   >
