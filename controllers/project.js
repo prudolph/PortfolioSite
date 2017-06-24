@@ -6,22 +6,32 @@ var mongoose = require('mongoose');//.set('debug', true),
 
 
 var Project = require('./../models/project.js');
+var Bio = require('./../models/bio.js');
 mongoose.model('Project');
 
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   var projects;
+  var bio;
   Project.find().
     exec(function (err, entries) {
       if (err){
         console.log("Could not find Projects error: "+ err);
         return next(err);
       }
-      console.log("found projects:");
       projects=entries;
-      console.log(projects);
-      res.render('projects', {"data":projects});
+
+      Bio.findOne({_id:0}).exec(function (err, foundBio) {
+          if (err){
+            console.log("Could not find bio error: "+ err);
+            return next(err);
+          }
+          bio=foundBio;
+
+
+          res.render('projects', {"data":projects,"bio":foundBio});
+      });
   });
 });
 
