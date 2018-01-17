@@ -1,0 +1,354 @@
+@font-face {
+  font-family: "Canela-Regular";
+  src: url("/fonts/Canela-Regular.otf"); }
+
+@font-face {
+  font-family: "Canela-Medium";
+  src: url("/fonts/Canela-Regular.otf"); }
+
+@font-face {
+  font-family: "FarnhamDisplay-RegularItal";
+  src: url("/fonts/FarnhamDisplay-RegularItal.otf"); }
+
+@font-face {
+  font-family: "FoundersGrotesk-Light";
+  src: url("/fonts/FoundersGrotesk-Light.otf"); }
+
+@font-face {
+  font-family: "FoundersGroteskCond-Bold";
+  src: url("/fonts/FoundersGroteskCond-Bold.otf"); }
+
+@font-face {
+  font-family: "FoundersGroteskCond-SmBd";
+  src: url("/fonts/FoundersGroteskCond-SmBd.otf"); }
+
+.app {
+  text-align: center; }
+
+.category-title {
+  font-family: 'Canela-Medium';
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 8px;
+  margin-top: 75px;
+  margin-bottom: 75px; }
+  @media all and (max-width: 400px) {
+    .category-title {
+      font-size: 16px; } }
+  .category-title hr {
+    border: 0;
+    border-top: 1px solid;
+    width: 50px;
+    color: #818285;
+    margin-top: -10px;
+    margin-bottom: -10px; }
+
+.thirty .site-header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: #ffffff;
+  height: unset; }
+  .thirty .site-header .wrapper {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-around; }
+  .thirty .site-header .logo-and-tag {
+    flex-shrink: 0;
+    height: 45px;
+    margin-top: 10px;
+    margin-left: 50px;
+    margin-right: 20px; }
+    @media only screen and (max-width: 500px) {
+      .thirty .site-header .logo-and-tag {
+        margin-left: 0;
+        margin-right: 0; } }
+  .thirty .site-header .category-menu {
+    order: 2;
+    align-self: stretch;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; }
+    @media only all and (max-width: 1200px) {
+      .thirty .site-header .category-menu {
+        order: 3;
+        background-color: #a7a9ac;
+        width: 100%;
+        padding: 15px; } }
+    @media only all and (max-width: 450px) {
+      .thirty .site-header .category-menu {
+        font-size: 12px;
+        padding: 5px; } }
+    .thirty .site-header .category-menu .category {
+      font-family: 'Canela-Medium';
+      color: #000000;
+      line-height: 20px;
+      padding-left: 10px;
+      letter-spacing: 1px; }
+  .thirty .site-header .vtw {
+    order: 3;
+    flex-shrink: 0;
+    background-color: #ee566c;
+    font-family: 'FoundersGroteskCond-SmBd';
+    font-size: 18px;
+    width: 150px;
+    height: 48px;
+    text-align: center;
+    line-height: 55px;
+    letter-spacing: 1.5px;
+    transform: scale(1, 1.3);
+    margin: 10px 50px; }
+    .thirty .site-header .vtw a {
+      color: #ffffff; }
+    @media only screen and (max-width: 1200px) {
+      .thirty .site-header .vtw {
+        order: 2; } }
+    @media only screen and (max-width: 500px) {
+      .thirty .site-header .vtw {
+        margin-left: 0;
+        margin-right: 0; } }
+
+.hero {
+  margin-top: 10px;
+  background-color: #a7a9ac;
+  background-image: url("/tripImages/Australia/Amex_Hero Image4.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  height: 500px; }
+  @media all and (max-width: 700px) {
+    .hero {
+      background-image: url("/tripImages/Australia/Amex_Mobile Hero4.jpg"); } }
+  .hero .title {
+    font-family: 'Canela-Medium';
+    font-size: 10pt;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    line-height: 60px;
+    color: #231f20;
+    padding-top: 150px; }
+    @media all and (max-width: 700px) {
+      .hero .title {
+        padding-top: 0;
+        margin-left: auto;
+        margin-right: auto;
+        width: 135px; } }
+    .hero .title hr {
+      border: 0;
+      border-top: 0.25px solid;
+      width: 135px;
+      color: #818285;
+      margin-left: auto;
+      margin-right: auto; }
+    .hero .title small {
+      font-size: 18pt;
+      letter-spacing: 2px;
+      vertical-align: 35%;
+      padding-left: 20px;
+      padding-right: 20px; }
+  .hero .subtitle {
+    font-family: "FoundersGrotesk-Light";
+    font-size: 30pt;
+    color: #231f20;
+    line-height: 40px;
+    margin-left: 15px;
+    margin-right: 15px; }
+    @media all and (max-width: 200px) {
+      .hero .subtitle {
+        font-size: 15pt; } }
+  .hero .presented {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: -10px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
+    width: 50%;
+    font-family: "FarnhamDisplay-RegularItal";
+    color: #231f20; }
+    .hero .presented p {
+      margin-left: 15px; }
+    .hero .presented .amex-card {
+      flex-shrink: 0;
+      width: 112.5px;
+      height: 75px;
+      margin-left: 15px;
+      margin-right: 15px; }
+
+.projects {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto; }
+
+.project {
+  flex-shrink: 1;
+  width: 200px;
+  margin-bottom: 10px;
+  margin-left: 50px;
+  margin-right: 50px; }
+  .project .project-image {
+    background-color: #818285;
+    width: 200px; }
+  .project .project-title {
+    color: #000000;
+    font-family: "Canela-Regular";
+    font-size: 32px;
+    text-align: left;
+    max-width: 100%;
+    line-height: normal; }
+    @media all and (max-width: 230px) {
+      .project .project-title {
+        font-size: 16px; } }
+  .project .project-description {
+    color: #000000;
+    font-size: 14px;
+    font-family: "FoundersGrotesk-Light";
+    letter-spacing: 1px;
+    text-align: left; }
+
+.project-detail-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85); }
+  .project-detail-container .project-detail-bkg {
+    position: absolute;
+    z-index: -1000;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    opacity: 0.85; }
+  .project-detail-container .project-detail-container {
+    background-color: #ffffff;
+    position: relative;
+    top: 50%;
+    transform: translateY(-45%); }
+    @media all and (max-width: 1050px) {
+      .project-detail-container .project-detail-container {
+        transform: translateY(-35%); } }
+    .project-detail-container .project-detail-container .close-btn {
+      float: right;
+      height: 30px;
+      background-color: transparent;
+      padding: 15px; }
+      @media all and (max-width: 1050px) {
+        .project-detail-container .project-detail-container .close-btn {
+          height: 20px;
+          padding-top: 10px;
+          padding-right: 30px; } }
+    .project-detail-container .project-detail-container .project-content {
+      display: flex;
+      align-items: flex-start;
+      width: 100%;
+      margin: 15px;
+      padding-top: 10px; }
+      @media all and (max-width: 775px) {
+        .project-detail-container .project-detail-container .project-content {
+          width: 100%; } }
+      .project-detail-container .project-detail-container .project-content .project-image {
+        flex-shrink: 0;
+        width: 40%;
+        background-color: #808285;
+        vertical-align: sub; }
+        @media all and (max-width: 775px) {
+          .project-detail-container .project-detail-container .project-content .project-image {
+            display: none; } }
+      .project-detail-container .project-detail-container .project-content .project-copy {
+        padding-left: 15px;
+        padding-right: 15px;
+        margin-left: 20px;
+        margin-right: 15px;
+        overflow: hidden; }
+        @media all and (max-width: 775px) {
+          .project-detail-container .project-detail-container .project-content .project-copy {
+            margin: -70px auto; } }
+        .project-detail-container .project-detail-container .project-content .project-copy .project-title {
+          color: #000000;
+          font-family: "Canela-Regular";
+          font-size: 30pt;
+          letter-spacing: 1px;
+          margin-bottom: -10px;
+          margin-top: 0px; }
+          @media all and (max-width: 775px) {
+            .project-detail-container .project-detail-container .project-content .project-copy .project-title {
+              margin-bottom: -10px;
+              margin-top: 35px;
+              font-size: 18pt; } }
+          @media all and (max-width: 300px) {
+            .project-detail-container .project-detail-container .project-content .project-copy .project-title {
+              margin-bottom: -10px;
+              margin-top: 60px;
+              font-size: 18pt; } }
+        .project-detail-container .project-detail-container .project-content .project-copy .project-subtitle {
+          text-align: left;
+          color: #000000;
+          font-size: 12pt;
+          font-family: "FoundersGroteskCond-Bold";
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          padding-right: 15px; }
+          @media all and (max-width: 775px) {
+            .project-detail-container .project-detail-container .project-content .project-copy .project-subtitle {
+              font-size: 8pt;
+              line-height: 12px; } }
+        .project-detail-container .project-detail-container .project-content .project-copy .project-description {
+          color: #000000;
+          font-size: 12pt;
+          font-family: "FoundersGrotesk-Light";
+          text-align: left;
+          margin-right: 30px;
+          max-height: 600px;
+          overflow-y: scroll; }
+          @media all and (max-width: 775px) {
+            .project-detail-container .project-detail-container .project-content .project-copy .project-description {
+              font-size: 10pt;
+              line-height: 15px; } }
+          @media all and (max-width: 350px) {
+            .project-detail-container .project-detail-container .project-content .project-copy .project-description {
+              max-height: 200px; } }
+        .project-detail-container .project-detail-container .project-content .project-copy ::-webkit-scrollbar {
+          width: 0px;
+          /* remove scrollbar space */
+          background: transparent;
+          /* optional: just make scrollbar invisible */ }
+
+.header {
+  background-color: #ffffff;
+  height: 200px;
+  font-family: 'Canela-Medium';
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-top: 10px; }
+  .header .logo {
+    float: left;
+    width: 100px; }
+  .header .category-menu {
+    width: 75%;
+    margin-left: 100px;
+    text-align: left; }
+  .header a {
+    width: 150px;
+    color: #000000;
+    text-decoration: none;
+    line-height: 50px;
+    padding-left: 10px; }
+  .header a.vote-cta {
+    float: right;
+    display: inline-block;
+    background-color: #ee566c;
+    color: #ffffff;
+    font-family: "FoundersGrotesk-Light";
+    font-size: 16px;
+    width: 150px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px; }

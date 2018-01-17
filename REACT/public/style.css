@@ -1,0 +1,846 @@
+@font-face {
+  font-family: 'bureaugrotcondbook';
+  src: url("http://www.cntraveler.com/fonts/bureaugrotcond-book-webfont.woff2") format("woff2"), url("http://www.cntraveler.com/fonts/bureaugrotcond-book-webfont.woff") format("woff"); }
+
+@font-face {
+  font-family: 'circularstdbook';
+  src: url("http://www.cntraveler.com/fonts/CircularStd-Book.woff2") format("woff2"), url("http://www.cntraveler.com/fonts/CircularStd-Book.woff") format("woff"); }
+
+@font-face {
+  font-family: 'circularstdbookitalic';
+  src: url("http://www.cntraveler.com/fonts/CircularStd-BookItalic.woff2") format("woff2"), url("http://www.cntraveler.com/fonts/CircularStd-BookItalic.woff") format("woff"); }
+
+@font-face {
+  font-family: 'circularstdbold';
+  src: url("http://www.cntraveler.com/fonts/CircularStd-Bold.woff2") format("woff2"), url("http://www.cntraveler.com/fonts/CircularStd-Bold.woff") format("woff"); }
+
+@font-face {
+  font-family: 'farnhamdisplayregular';
+  src: url("http://www.cntraveler.com/fonts/farnhamdisplay-regular-webfont.woff2") format("woff2"), url("http://www.cntraveler.com/fonts/farnhamdisplay-regular-webfont.woff") format("woff"); }
+
+@font-face {
+  font-family: 'farnhamdisplayregularital';
+  src: url("http://www.cntraveler.com/fonts/farnhamdisplay-regularitalic-webfont.woff2") format("woff2"), url("http://www.cntraveler.com/fonts/farnhamdisplay-regularitalic-webfont.woff") format("woff"); }
+
+@font-face {
+  font-family: 'farnhamdisplaylight';
+  src: url("http://www.cntraveler.com/fonts/farnhamdisplay-light-webfont.woff2") format("woff2"), url("http://www.cntraveler.com/fonts/farnhamdisplay-light-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'farnhamdisplaylightital';
+  src: url("http://www.cntraveler.com/fonts/FarnhamDisplay-LightItalic.woff2") format("woff2"), url("http://www.cntraveler.com/fonts/FarnhamDisplay-LightItalic.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'farnhamdisplaybold';
+  src: url("http://www.cntraveler.com/fonts/farnhamdisplay-bold-webfont.woff2") format("woff2"), url("http://www.cntraveler.com/fonts/farnhamdisplay-bold-webfont.woff") format("woff"); }
+
+.caribbean-hub {
+  font-family: "circularstdbook", Helvetica, sans-serif;
+  text-rendering: optimizelegibility;
+  -webkit-font-smoothing: antialiased; }
+  .caribbean-hub *, .caribbean-hub *:before, .caribbean-hub *:after {
+    box-sizing: border-box; }
+  .caribbean-hub .Tablet {
+    display: none !important; }
+  @media screen and (min-width: 768px) {
+    .caribbean-hub .Mobile {
+      display: none !important; }
+    .caribbean-hub .Tablet {
+      display: block !important; } }
+  .caribbean-hub .Hidden {
+    display: none !important; }
+  .caribbean-hub h1, .caribbean-hub h2 {
+    color: #000;
+    font-family: "farnhamdisplayregular", Georgia, serif;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: -.0125rem;
+    letter-spacing: -.2px;
+    text-decoration: none;
+    text-transform: none; }
+  .caribbean-hub a {
+    color: #000;
+    text-decoration: underline; }
+    .caribbean-hub a:hover {
+      text-decoration: none; }
+  .caribbean-hub .h-list,
+  .caribbean-hub .v-list {
+    list-style: none;
+    margin: 0;
+    overflow: hidden; }
+  .caribbean-hub .h-list > li {
+    float: left;
+    margin-right: 10px; }
+  .caribbean-hub .h-list > li:last-child {
+    margin-right: 0; }
+  .caribbean-hub .h-list--centered {
+    text-align: center; }
+    .caribbean-hub .h-list--centered > li {
+      float: none;
+      display: inline-block;
+      margin: 0 10px; }
+      .caribbean-hub .h-list--centered > li:last-child {
+        margin-right: 10px; }
+  .caribbean-hub .gw,
+  .caribbean-hub .grid-wrapper {
+    list-style: none;
+    margin-bottom: 0;
+    margin-left: -20px; }
+  .caribbean-hub .g,
+  .caribbean-hub .grid {
+    float: left;
+    width: 100%;
+    padding-left: 20px;
+    transition: width .15s ease; }
+    .caribbean-hub .g:after,
+    .caribbean-hub .grid:after {
+      display: table;
+      content: "";
+      clear: both; }
+  .caribbean-hub .display-table {
+    display: table;
+    width: 100%; }
+  .caribbean-hub .display-row {
+    display: table-row;
+    width: 100%; }
+  .caribbean-hub .display-cell {
+    display: table-cell;
+    height: 100%; }
+  .caribbean-hub .align-top {
+    vertical-align: top; }
+  .caribbean-hub .align-middle {
+    vertical-align: middle; }
+  .caribbean-hub .align-bottom {
+    vertical-align: bottom; }
+
+.caribbean-hub .caribbean-header {
+  background-color: #000613;
+  background-image: url("https://media.cntraveler.com/photos/588bc6e54d2e1f891dc0a89b/master/pass/royalCaribbean-header-mobile.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 50% 35%;
+  display: table;
+  text-align: center;
+  position: relative;
+  height: 640px;
+  overflow: hidden;
+  margin: 0 auto;
+  width: 100%; }
+  @media screen and (min-width: 768px) {
+    .caribbean-hub .caribbean-header {
+      background-position: 50% 50%; } }
+  @media screen and (min-width: 1024px) {
+    .caribbean-hub .caribbean-header {
+      background-image: url("https://media.cntraveler.com/photos/588bc6e54d2e1f891dc0a89a/master/pass/royalCaribbean-header.jpg");
+      background-size: cover; } }
+  .caribbean-hub .caribbean-header .display-row {
+    height: 400px; }
+    @media screen and (max-width: 767px) {
+      .caribbean-hub .caribbean-header .display-row {
+        height: 320px; } }
+  .caribbean-hub .caribbean-header .MainTitle {
+    display: table-cell;
+    vertical-align: top; }
+    .caribbean-hub .caribbean-header .MainTitle h1 {
+      color: white;
+      display: inline-block;
+      font-size: 28px;
+      line-height: 1.25;
+      margin: 0 auto;
+      max-width: 1200px;
+      padding: 40px;
+      text-transform: uppercase; }
+      .caribbean-hub .caribbean-header .MainTitle h1 span {
+        display: block;
+        font-size: 20px;
+        margin-bottom: 30px;
+        position: relative; }
+        .caribbean-hub .caribbean-header .MainTitle h1 span:after {
+          border-top: 2px solid white;
+          bottom: -15px;
+          content: "";
+          display: block;
+          left: 50%;
+          position: absolute;
+          -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+          width: 68px; }
+      .caribbean-hub .caribbean-header .MainTitle h1 em {
+        display: inline-block;
+        font-family: "farnhamdisplayregular", Georgia, serif;
+        font-style: normal; }
+  .caribbean-hub .caribbean-header .intro {
+    color: white;
+    display: table-cell;
+    font-family: "farnhamdisplayregular", Georgia, serif;
+    letter-spacing: 0.02em;
+    vertical-align: bottom; }
+    .caribbean-hub .caribbean-header .intro .inner {
+      max-width: 650px;
+      margin: 0 auto 75px;
+      padding: 0 30px; }
+      .caribbean-hub .caribbean-header .intro .inner .component-social-share {
+        margin: 0 !important; }
+    .caribbean-hub .caribbean-header .intro span {
+      display: inline-block; }
+  @media screen and (min-width: 768px) {
+    .caribbean-hub .caribbean-header .component-social-follow {
+      position: absolute;
+      right: 40px;
+      top: 40px; } }
+  .caribbean-hub .caribbean-header .down-arrow {
+    border-radius: 56px;
+    height: 56px;
+    width: 56px;
+    position: absolute;
+    bottom: 27px;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%); }
+    .caribbean-hub .caribbean-header .down-arrow:before, .caribbean-hub .caribbean-header .down-arrow:after {
+      border: 1px solid white;
+      content: "";
+      display: inline-block;
+      position: absolute;
+      top: 50%;
+      width: 19px; }
+    .caribbean-hub .caribbean-header .down-arrow:before {
+      left: 12px;
+      -webkit-transform: rotate(45deg);
+      transform: rotate(45deg); }
+    .caribbean-hub .caribbean-header .down-arrow:after {
+      right: 12px;
+      -webkit-transform: rotate(-45deg);
+      transform: rotate(-45deg); }
+    .caribbean-hub .caribbean-header .down-arrow:hover {
+      cursor: pointer; }
+  @media screen and (min-width: 768px) {
+    .caribbean-hub .caribbean-header {
+      height: 800px;
+      padding-top: 60px; }
+      .caribbean-hub .caribbean-header .MainTitle h1 {
+        font-size: 52px; }
+        .caribbean-hub .caribbean-header .MainTitle h1 span {
+          font-size: 28px;
+          margin-bottom: 35px; }
+          .caribbean-hub .caribbean-header .MainTitle h1 span:after {
+            bottom: -20px; } }
+  .caribbean-hub .caribbean-header .caribbean-hub .component-social-follow {
+    text-align: center; }
+    .caribbean-hub .caribbean-header .caribbean-hub .component-social-follow ul {
+      margin: 60px 0 45px; }
+
+.caribbean-hub .placeholder-element {
+  height: auto;
+  width: 100%;
+  margin: 0 auto 50px; }
+  @media screen and (min-width: 768px) {
+    .caribbean-hub .placeholder-element {
+      height: auto;
+      margin: 0 auto 120px; } }
+
+.caribbean-hub .paragraph-one,
+.caribbean-hub .paragraph-two {
+  color: black;
+  position: relative;
+  max-width: 1270px;
+  margin: 0 auto 60px;
+  padding-bottom: 0; }
+  .caribbean-hub .paragraph-one p,
+  .caribbean-hub .paragraph-two p {
+    font-family: "circularstdbook", Helvetica, sans-serif;
+    margin: 0 auto;
+    max-width: 680px;
+    padding: 0 40px;
+    font-size: 18px;
+    line-height: 26px; }
+  .caribbean-hub .paragraph-one a,
+  .caribbean-hub .paragraph-two a {
+    font-family: "circularstdbook", Helvetica, sans-serif; }
+
+.caribbean-hub .paragraph-one p:first-child:first-letter {
+  float: left;
+  font-family: "farnhamdisplayregular", Georgia, serif;
+  font-size: 70px;
+  line-height: 34px;
+  padding-top: 4px;
+  padding-right: 6px;
+  padding-left: 3px; }
+
+/**
+ * Owl Carousel v2.2.0
+ * Copyright 2013-2016 David Deutsch
+ * Licensed under MIT (https://github.com/OwlCarousel2/OwlCarousel2/blob/master/LICENSE)
+ */
+.owl-carousel, .owl-carousel .owl-item {
+  -webkit-tap-highlight-color: transparent;
+  position: relative; }
+
+.owl-carousel {
+  display: none;
+  width: 100%;
+  z-index: 1; }
+
+.owl-carousel .owl-stage {
+  position: relative;
+  -ms-touch-action: pan-Y; }
+
+.owl-carousel .owl-stage:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0; }
+
+.owl-carousel .owl-stage-outer {
+  position: relative;
+  overflow: hidden;
+  -webkit-transform: translate3d(0, 0, 0); }
+
+.owl-carousel .owl-item {
+  min-height: 1px;
+  float: left;
+  -webkit-backface-visibility: hidden;
+  -webkit-touch-callout: none; }
+
+.owl-carousel .owl-item img {
+  display: block;
+  width: 100%;
+  -webkit-transform-style: preserve-3d; }
+
+.owl-carousel .owl-dots.disabled, .owl-carousel .owl-nav.disabled {
+  display: none; }
+
+.no-js .owl-carousel, .owl-carousel.owl-loaded {
+  display: block; }
+
+.owl-carousel .owl-dot, .owl-carousel .owl-nav .owl-next, .owl-carousel .owl-nav .owl-prev {
+  cursor: pointer;
+  cursor: hand;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+.owl-carousel.owl-loading {
+  opacity: 0;
+  display: block; }
+
+.owl-carousel.owl-hidden {
+  opacity: 0; }
+
+.owl-carousel.owl-refresh .owl-item {
+  visibility: hidden; }
+
+.owl-carousel.owl-drag .owl-item {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+.owl-carousel.owl-grab {
+  cursor: move;
+  cursor: grab; }
+
+.owl-carousel.owl-rtl {
+  direction: rtl; }
+
+.owl-carousel.owl-rtl .owl-item {
+  float: right; }
+
+.owl-carousel .animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+.owl-carousel .owl-animated-in {
+  z-index: 0; }
+
+.owl-carousel .owl-animated-out {
+  z-index: 1; }
+
+.owl-carousel .fadeOut {
+  -webkit-animation-name: fadeOut;
+  animation-name: fadeOut; }
+
+@-webkit-keyframes fadeOut {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+.owl-height {
+  transition: height .5s ease-in-out; }
+
+.owl-carousel .owl-item .owl-lazy {
+  opacity: 0;
+  transition: opacity .4s ease; }
+
+.owl-carousel .owl-item img.owl-lazy {
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d; }
+
+.owl-carousel .owl-video-wrapper {
+  position: relative;
+  height: 100%;
+  background: #000; }
+
+.owl-carousel .owl-video-play-icon {
+  position: absolute;
+  height: 80px;
+  width: 80px;
+  left: 50%;
+  top: 50%;
+  margin-left: -40px;
+  margin-top: -40px;
+  background: url(https://media.cntraveler.com/photos/588f99ea065b146263be3f62/master/pass/owl.video.play.png) no-repeat;
+  cursor: pointer;
+  z-index: 1;
+  -webkit-backface-visibility: hidden;
+  transition: -webkit-transform .1s ease;
+  transition: transform .1s ease; }
+
+.owl-carousel .owl-video-play-icon:hover {
+  -webkit-transform: scale(1.3, 1.3);
+  -ms-transform: scale(1.3, 1.3);
+  transform: scale(1.3, 1.3); }
+
+.owl-carousel .owl-video-playing .owl-video-play-icon, .owl-carousel .owl-video-playing .owl-video-tn {
+  display: none; }
+
+.owl-carousel .owl-video-tn {
+  opacity: 0;
+  height: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  transition: opacity .4s ease; }
+
+.owl-carousel .owl-video-frame {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  width: 100%; }
+
+/**
+ * Owl Carousel v2.2.0
+ * Copyright 2013-2016 David Deutsch
+ * Licensed under MIT (https://github.com/OwlCarousel2/OwlCarousel2/blob/master/LICENSE)
+ */
+.owl-theme .owl-dots, .owl-theme .owl-nav {
+  text-align: center;
+  -webkit-tap-highlight-color: transparent; }
+
+.owl-theme .owl-nav {
+  margin-top: 10px; }
+
+.owl-theme .owl-nav [class*=owl-] {
+  color: #FFF;
+  font-size: 14px;
+  margin: 5px;
+  padding: 4px 7px;
+  background: #D6D6D6;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 3px; }
+
+.owl-theme .owl-nav [class*=owl-]:hover {
+  background: #869791;
+  color: #FFF;
+  text-decoration: none; }
+
+.owl-theme .owl-nav .disabled {
+  opacity: .5;
+  cursor: default; }
+
+.owl-theme .owl-nav.disabled + .owl-dots {
+  margin-top: 10px; }
+
+.owl-theme .owl-dots .owl-dot {
+  display: inline-block;
+  zoom: 1; }
+
+.owl-theme .owl-dots .owl-dot span {
+  width: 10px;
+  height: 10px;
+  margin: 5px 7px;
+  background: #D6D6D6;
+  display: block;
+  -webkit-backface-visibility: visible;
+  transition: opacity .2s ease;
+  border-radius: 30px; }
+
+.owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
+  background: #869791; }
+
+.caribbean-hub .owl-carousel .owl-video-wrapper,
+.caribbean-hub .owl-carousel .owl-video-tn {
+  background: none !important; }
+
+.caribbean-hub .owl-carousel .owl-video-wrapper {
+  position: absolute !important;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%; }
+
+.caribbean-hub .owl-carousel .owl-item > div {
+  margin: 0 auto;
+  max-width: 1200px;
+  position: relative; }
+
+.caribbean-hub .owl-carousel .owl-prev,
+.caribbean-hub .owl-carousel .owl-next {
+  border-top: 2px solid white;
+  height: 18px;
+  width: 18px;
+  position: absolute;
+  top: 22%;
+  transform: translateY(-50%); }
+  @media screen and (min-width: 768px) {
+    .caribbean-hub .owl-carousel .owl-prev,
+    .caribbean-hub .owl-carousel .owl-next {
+      top: 50%; } }
+
+.caribbean-hub .owl-carousel .owl-prev {
+  border-left: 2px solid white;
+  left: 5%;
+  transform: rotate(-45deg); }
+
+.caribbean-hub .owl-carousel .owl-next {
+  border-right: 2px solid white;
+  right: 5%;
+  transform: rotate(45deg); }
+
+.caribbean-hub .embed-container {
+  background-color: steelblue;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%; }
+
+.caribbean-hub .embed-container iframe,
+.caribbean-hub .embed-container object,
+.caribbean-hub .embed-container embed,
+.caribbean-hub .embed-container a {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; }
+
+.caribbean-hub .owl-video-mobile {
+  background: url(https://media.cntraveler.com/photos/588f99ea065b146263be3f62/master/pass/owl.video.play.png) no-repeat;
+  background-position: 50% 50%; }
+
+.caribbean-hub .video-slideshow,
+.caribbean-hub .photo-slideshow {
+  background: #262626;
+  margin-bottom: 60px;
+  position: relative; }
+  .caribbean-hub .video-slideshow .slide-header,
+  .caribbean-hub .photo-slideshow .slide-header {
+    color: white; }
+    .caribbean-hub .video-slideshow .slide-header span,
+    .caribbean-hub .photo-slideshow .slide-header span {
+      display: block;
+      position: relative; }
+  .caribbean-hub .video-slideshow .site-body,
+  .caribbean-hub .photo-slideshow .site-body {
+    background: transparent;
+    color: white;
+    font-size: 12px;
+    letter-spacing: 0.02em; }
+    .caribbean-hub .video-slideshow .site-body a,
+    .caribbean-hub .photo-slideshow .site-body a {
+      color: white; }
+
+.caribbean-hub .video-slideshow {
+  overflow: hidden;
+  padding: 40px 0; }
+  .caribbean-hub .video-slideshow > .slideshow {
+    margin-bottom: 40px; }
+  .caribbean-hub .video-slideshow h2 {
+    font-size: 28px; }
+  .caribbean-hub .video-slideshow .slide-header {
+    margin: 40px 0 10px;
+    text-align: center;
+    text-transform: uppercase; }
+    .caribbean-hub .video-slideshow .slide-header span {
+      font-size: 60%;
+      margin-bottom: 10px; }
+      .caribbean-hub .video-slideshow .slide-header span:after {
+        border-top: 2px solid white;
+        bottom: -5px;
+        content: "";
+        display: block;
+        left: 50%;
+        position: absolute;
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+        width: 34px; }
+    @media screen and (min-width: 768px) {
+      .caribbean-hub .video-slideshow .slide-header {
+        margin: 40px 0 20px; }
+        .caribbean-hub .video-slideshow .slide-header span {
+          margin-bottom: 20px; }
+          .caribbean-hub .video-slideshow .slide-header span:after {
+            bottom: -10px;
+            width: 68px; } }
+  .caribbean-hub .video-slideshow .slide-content {
+    color: white;
+    padding-right: 80px;
+    position: relative;
+    top: 100%;
+    left: 40px;
+    width: 100%;
+    /*opacity: 0;*/
+    /*transition: opacity 0.8s;*/ }
+    @media screen and (min-width: 768px) {
+      .caribbean-hub .video-slideshow .slide-content {
+        padding: 0;
+        width: 40%; } }
+  .caribbean-hub .video-slideshow .current .slide-content {
+    opacity: 1; }
+  .caribbean-hub .video-slideshow .component-social-follow {
+    margin-top: 20px;
+    text-align: center; }
+    @media screen and (min-width: 768px) {
+      .caribbean-hub .video-slideshow .component-social-follow {
+        margin: 0;
+        text-align: left;
+        position: absolute;
+        margin-right: 40px;
+        right: 50%;
+        transform: translateX(50vw);
+        top: 0px;
+        z-index: 10000; } }
+    @media (min-width: 769px) and (max-width: 1460px) {
+      .caribbean-hub .video-slideshow .component-social-follow {
+        margin-right: 20px;
+        margin-top: 20px;
+        right: 0;
+        text-align: right;
+        width: 100%;
+        transform: translateX(0); }
+        .caribbean-hub .video-slideshow .component-social-follow .component-social-share {
+          float: right; } }
+    .caribbean-hub .video-slideshow .component-social-follow .label {
+      display: none !important; }
+  .caribbean-hub .video-slideshow .component-social-follow ul {
+    margin: 0; }
+  .caribbean-hub .video-slideshow .component-social-follow .social-follow-item {
+    height: 32px;
+    width: 32px;
+    margin-bottom: 0; }
+    .caribbean-hub .video-slideshow .component-social-follow .social-follow-item a {
+      border-radius: 32px; }
+      .caribbean-hub .video-slideshow .component-social-follow .social-follow-item a:before {
+        font-size: 20px;
+        margin-left: 1px; }
+
+.caribbean-hub .photo-slideshow {
+  padding: 40px 0; }
+  .caribbean-hub .photo-slideshow .owl-item {
+    max-width: 100vw; }
+  .caribbean-hub .photo-slideshow .owl-prev,
+  .caribbean-hub .photo-slideshow .owl-next {
+    margin-top: -5%; }
+  .caribbean-hub .photo-slideshow .owl-item > div {
+    float: left;
+    margin: 0 auto;
+    max-width: 1200px;
+    position: relative;
+    width: auto; }
+    .caribbean-hub .photo-slideshow .owl-item > div.portrait {
+      max-width: 590px !important;
+      width: 58.8vw; }
+    .caribbean-hub .photo-slideshow .owl-item > div.landscape {
+      max-width: 1000px !important;
+      width: 100vw; }
+  .caribbean-hub .photo-slideshow .owl-item img {
+    width: 100% !important; }
+  .caribbean-hub .photo-slideshow .grid {
+    color: white;
+    margin-bottom: 10px;
+    width: 100%; }
+    @media screen and (min-width: 768px) {
+      .caribbean-hub .photo-slideshow .grid:nth-child(odd) {
+        width: 60%; }
+      .caribbean-hub .photo-slideshow .grid:nth-child(even) {
+        width: 20%; }
+      .caribbean-hub .photo-slideshow .grid:first-child {
+        width: 8%; }
+      .caribbean-hub .photo-slideshow .grid:last-child {
+        width: 12%; } }
+  .caribbean-hub .photo-slideshow img,
+  .caribbean-hub .photo-slideshow .slide-content {
+    transition: opacity 0.7s; }
+  .caribbean-hub .photo-slideshow img {
+    opacity: 0.15 !important; }
+  .caribbean-hub .photo-slideshow .slide-content {
+    margin-top: 30px;
+    opacity: 0;
+    padding: 0 20px 0 0;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90vw;
+    max-width: 1200px; }
+  .caribbean-hub .photo-slideshow .center {
+    z-index: 10000; }
+    .caribbean-hub .photo-slideshow .center img {
+      opacity: 1 !important; }
+    .caribbean-hub .photo-slideshow .center .slide-content {
+      opacity: 1; }
+  .caribbean-hub .photo-slideshow .slide-count {
+    font-family: "farnhamdisplayregular", Georgia, serif;
+    font-size: 14px;
+    line-height: 1; }
+  .caribbean-hub .photo-slideshow .slide-header,
+  .caribbean-hub .photo-slideshow .site-body {
+    margin: 0; }
+  .caribbean-hub .photo-slideshow .slide-header {
+    font-family: "farnhamdisplaylight", Georgia, serif;
+    line-height: 1.2; }
+    .caribbean-hub .photo-slideshow .slide-header span {
+      font-family: "circularstdbook", Helvetica, sans-serif;
+      font-size: 50%;
+      margin-bottom: 5px;
+      text-transform: uppercase; }
+  .caribbean-hub .photo-slideshow .component-social-follow {
+    margin-top: 20px;
+    text-align: center; }
+    @media screen and (min-width: 768px) {
+      .caribbean-hub .photo-slideshow .component-social-follow {
+        margin-right: 40px;
+        margin-top: 0;
+        position: absolute;
+        right: 50%;
+        text-align: left;
+        transform: translateX(50vw);
+        z-index: 10000; } }
+  .caribbean-hub .photo-slideshow .component-social-follow ul {
+    margin: 0; }
+  .caribbean-hub .photo-slideshow .component-social-follow .social-follow-item {
+    height: 32px;
+    width: 32px;
+    margin-bottom: 0; }
+    .caribbean-hub .photo-slideshow .component-social-follow .social-follow-item a {
+      border-radius: 32px; }
+      .caribbean-hub .photo-slideshow .component-social-follow .social-follow-item a:before {
+        font-size: 20px;
+        margin-left: 1px; }
+
+.caribbean-hub .owl-stage-outer {
+  overflow: visible !important; }
+
+.caribbean-hub .thumbnail-nav {
+  float: left;
+  width: 100%; }
+  @media screen and (min-width: 768px) {
+    .caribbean-hub .thumbnail-nav {
+      position: absolute;
+      top: 70%;
+      right: 0; } }
+  @media screen and (min-width: 769px) {
+    .caribbean-hub .thumbnail-nav {
+      top: 65%; } }
+  @media screen and (min-width: 820px) {
+    .caribbean-hub .thumbnail-nav {
+      top: 68%; } }
+  @media screen and (min-width: 900px) {
+    .caribbean-hub .thumbnail-nav {
+      top: 70%; } }
+  @media screen and (min-width: 1000px) {
+    .caribbean-hub .thumbnail-nav {
+      top: 72%; } }
+  @media screen and (min-width: 1100px) {
+    .caribbean-hub .thumbnail-nav {
+      top: 74%; } }
+  @media screen and (min-width: 1200px) {
+    .caribbean-hub .thumbnail-nav {
+      top: 75%; } }
+  .caribbean-hub .thumbnail-nav .inner {
+    margin: 0 auto;
+    max-width: 1200px; }
+  .caribbean-hub .thumbnail-nav .owl-stage-outer {
+    overflow: hidden !important; }
+  .caribbean-hub .thumbnail-nav .thumbnails {
+    background: #262626;
+    padding: 0 40px;
+    position: relative;
+    width: 100%;
+    z-index: 20; }
+    .caribbean-hub .thumbnail-nav .thumbnails .grid {
+      opacity: 0.3;
+      transition: all 0.2s; }
+      .caribbean-hub .thumbnail-nav .thumbnails .grid:hover {
+        cursor: pointer;
+        opacity: 1; }
+    .caribbean-hub .thumbnail-nav .thumbnails .owl-item {
+      transition: all 0.3s; }
+    .caribbean-hub .thumbnail-nav .thumbnails .owl-item.current {
+      border: 0;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;
+      opacity: 0; }
+    @media screen and (min-width: 768px) {
+      .caribbean-hub .thumbnail-nav .thumbnails {
+        float: right;
+        width: 50%; } }
+    @media screen and (min-width: 1200px) {
+      .caribbean-hub .thumbnail-nav .thumbnails {
+        padding: 0; } }
+
+.caribbean-hub .component-social-follow .social-follow-item {
+  margin: 0 5px 0; }
+
+.thumbnails > div .grid {
+  width: 50%; }
+
+.thumbnails > div .current {
+  display: none; }
+
+.slide-content .component-social-share, .video-slideshow .component-social-share {
+  margin: 0 !important; }
+
+.slide-content .twitter,
+.slide-content .email, .video-slideshow .twitter,
+.video-slideshow .email {
+  display: none !important; }
+
+html,
+body {
+  overflow-x: hidden; }
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  overflow-x: hidden; }
+
+.global-footer-cm-unit {
+  display: none !important; }

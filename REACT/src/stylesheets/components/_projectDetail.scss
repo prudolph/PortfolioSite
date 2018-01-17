@@ -1,0 +1,138 @@
+.project-detail-container {
+  position:fixed;
+  top:0;
+  left:0;
+  width: 100%;
+  height:100%;
+  background-color:rgba(0,0,0,.85);
+
+  .project-detail-bkg{
+    position: absolute;
+    z-index:-1000;
+    width: 100%;
+    height:100%;
+    background-color: $black;
+    opacity: 0.85;
+  }
+
+  .project-detail-container{
+    background-color:$white;
+    position: relative;
+    top: 50%;
+    transform: translateY(-45%);
+    @media all and (max-width: 1050px) {
+      transform: translateY(-35%);
+  }
+
+    .close-btn{
+      float:right;
+      height:30px;
+      background-color: transparent;
+      padding: 15px;
+      @media all and (max-width: 1050px) {
+        height:20px;
+        padding-top: 10px;
+        padding-right: 30px;}
+
+    }
+
+    .project-content{
+      display:flex;
+      align-items: flex-start;
+      width:100%;
+      margin: 15px;
+      padding-top: 10px;
+
+
+
+      @media all and (max-width: 775px) {width:100%;}
+
+      .project-image{
+        flex-shrink: 0;
+        width:40%;
+        background-color: $gray;
+        vertical-align:sub;
+
+        @media all and (max-width: 775px) {display:none;}
+      }
+
+
+      .project-copy{
+        padding-left: 15px;
+        padding-right: 15px;
+        margin-left:20px;
+        margin-right: 15px;
+        overflow: hidden;
+
+        @media all and (max-width: 775px) {
+          margin: -70px auto;
+
+        }
+        .project-title{
+
+          color: $black;
+          font-family: $font-title;
+          font-size:30pt;
+          letter-spacing: $letter-space;
+          margin-bottom: -10px;
+          margin-top:0px;
+          @media all and (max-width: 775px) {
+            margin-bottom: -10px;
+            margin-top:35px;
+            font-size:18pt;
+          }
+          @media all and (max-width: 300px) {
+            margin-bottom: -10px;
+            margin-top:60px;
+            font-size:18pt;
+          }
+
+        }
+
+        .project-subtitle{
+          text-align: left;
+          color:$black;
+          font-size: 12pt;
+          font-family: $font-bold;
+          text-transform:uppercase;
+          letter-spacing: $letter-space;
+          padding-right: 15px;
+          @media all and (max-width: 775px) {
+              font-size:8pt;
+              line-height: 12px;
+          }
+        }
+
+
+        .project-description{
+          color: $black;
+
+          font-size:12pt;
+          font-family: $font-normal;
+          text-align: left;
+          margin-right:30px;
+          max-height: 600px;
+          overflow-y: scroll;
+
+          @media all and (max-width: 775px) {
+
+            font-size:10pt;
+            line-height: 15px;
+          }
+          @media all and (max-width: 350px) {
+            max-height: 200px;
+
+          }
+
+        }
+        ::-webkit-scrollbar {
+          width: 0px;  /* remove scrollbar space */
+          background: transparent;  /* optional: just make scrollbar invisible */
+      }
+    }
+  }
+  }
+
+
+
+}

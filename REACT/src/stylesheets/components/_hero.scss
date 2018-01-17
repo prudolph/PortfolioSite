@@ -1,0 +1,98 @@
+.hero{
+  margin-top:10px;
+  background-color: $light-gray;
+
+  background-image: url("/tripImages/Australia/Amex_Hero Image4.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+
+  height:500px;
+  @media all and (max-width: 700px) {
+
+    background-image: url("/tripImages/Australia/Amex_Mobile Hero4.jpg");
+  }
+
+
+
+  .title{
+
+    font-family: 'Canela-Medium';
+    font-size:10pt;
+    text-transform:uppercase;
+    letter-spacing: 4px;
+    line-height: 60px;
+    color:$darker-gray;
+    padding-top: 150px;
+
+    @media all and (max-width: 700px) {
+      padding-top: 0;
+      margin-left: auto;
+      margin-right: auto;
+      width:135px;
+
+    }
+
+
+    hr {
+        border: 0;
+      	border-top: 0.25px solid;
+        width: 135px;
+        color:$dark-gray;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    small{
+      font-size:18pt;
+      letter-spacing: 2px;
+      vertical-align:35%;
+      padding-left: 20px;
+      padding-right: 20px;
+      }
+
+  }
+
+  .subtitle{
+    font-family: $font-normal;
+    font-size:30pt;
+    color:$darker-gray;
+    line-height: 40px;
+    margin-left: 15px;
+    margin-right: 15px;
+
+    @media all and (max-width: 200px) {
+      font-size:15pt;
+    }
+  }
+
+  .presented{
+    display:flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top:-10px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom:15px;
+
+    padding-left: 30px;
+    padding-right: 30px;
+    width:50%;
+
+    font-family: $font-italic;
+    color:$darker-gray;
+
+    p{
+      margin-left: 15px;
+    }
+    .amex-card{
+      flex-shrink: 0;
+      width:112.5px;
+      height:75px;
+      margin-left:15px;
+      margin-right:15px;
+    }
+  }
+
+
+};

@@ -1,0 +1,29 @@
+{
+  "name": "prudolph",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "dev-server": "webpack-dev-server"
+  },
+  "dependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.8",
+    "csv-parse": "^1.2.0",
+    "fs": "0.0.1-security",
+    "html-to-react": "^1.2.8",
+    "node-sass": "^4.5.2",
+    "npm-run-all": "^4.0.2",
+    "react": "^15.6.2",
+    "react-dom": "^15.6.2",
+    "react-scripts": "0.9.5",
+    "style-loader": "^0.19.1",
+    "validator": "^9.2.0",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.11.0"
+  }
+}
