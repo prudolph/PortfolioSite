@@ -1,6 +1,4 @@
 import React from 'react';
-
-import Header from './Header'
 import Hero from './Hero'
 import Categories from './Categories'
 
@@ -16,9 +14,12 @@ export default class PortfolioApp extends React.Component {
   render() {
     return (
       <div className="app">
-        <Header/>
+      <h1>Main Project Page</h1>
+
+       {/*
         <Hero/>
         <Categories/>
+       */}
       </div>
     );
   }

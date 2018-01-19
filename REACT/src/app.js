@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import PortfolioApp from './components/PortfolioApp';
-import './stylesheets/main.css'
+import './stylesheets/main.scss'
+import AppRouter from './routers/AppRouter.js'
 
-ReactDOM.render(<PortfolioApp/>,document.getElementById('app'));
+
+
+ReactDOM.render(<AppRouter/>,document.getElementById('app'));
