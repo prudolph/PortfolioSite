@@ -1,6 +1,6 @@
 import React from 'react'
 import ProjectData from '../data.json'
-import Project from './Project'
+import ProjectItem from './ProjectItem'
 
 export default class Projects extends React.Component{
     constructor(props){
@@ -14,7 +14,7 @@ export default class Projects extends React.Component{
         
         for (var project in data) {
            Projects.push( 
-           <Project 
+           <ProjectItem 
             key={project}  
             name={project} 
             data={data[project]}/>
