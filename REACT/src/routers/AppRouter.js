@@ -12,7 +12,6 @@ import NotFound from '../components/NotFound'
     <BrowserRouter>
     <div>
         <Header/>
-
         <Switch>
             <Route exact path="/" component={Projects}/>
             <Route path="/about" component={About}/>

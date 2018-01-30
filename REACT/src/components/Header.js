@@ -5,12 +5,12 @@ class Header extends Component {
 
   render() {
     return (
-      <div className="header" >
+      <div className="header__container" >
         <h1 className="header__title">Paul Rudolph</h1>
-        <div className="links">
-          <NavLink className="pageLink" to="/" activeClassName="activePage" exact={true}>Home</NavLink>
-          <NavLink className="pageLink" to="/about" activeClassName="activePage" exact={true}>About</NavLink>
-          <NavLink className="pageLink" to="/posts" activeClassName="activePage" exact={true}>Posts</NavLink>
+        <div className="header__links">
+          <NavLink className="header__pageLink" to="/"      activeClassName="header--activePage" exact={true}>Home</NavLink>
+          <NavLink className="header__pageLink" to="/about" activeClassName="header--activePage" exact={true}>About</NavLink>
+          <NavLink className="header__pageLink" to="/posts" activeClassName="header--activePage" exact={true}>Posts</NavLink>
       </div>
       </div>
     );

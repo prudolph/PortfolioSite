@@ -1,29 +1,25 @@
 .hero{
-  margin-top:10px;
   background-color: $light-gray;
-
-  background-image: url("/tripImages/Australia/Amex_Hero Image4.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 50% 50%;
-
+  font-family: $text;
+  
   height:500px;
   @media all and (max-width: 700px) {
-
     background-image: url("/tripImages/Australia/Amex_Mobile Hero4.jpg");
   }
 
 
 
-  .title{
+  .hero__title{
 
-    font-family: 'Canela-Medium';
     font-size:10pt;
-    text-transform:uppercase;
     letter-spacing: 4px;
-    line-height: 60px;
+    line-height: $font-lrg;
     color:$darker-gray;
-    padding-top: 150px;
+    //padding: px;
+
 
     @media all and (max-width: 700px) {
       padding-top: 0;
@@ -53,14 +49,11 @@
 
   }
 
-  .subtitle{
+  .hero__subtitle{
     font-family: $font-normal;
     font-size:30pt;
     color:$darker-gray;
-    line-height: 40px;
-    margin-left: 15px;
-    margin-right: 15px;
-
+ 
     @media all and (max-width: 200px) {
       font-size:15pt;
     }

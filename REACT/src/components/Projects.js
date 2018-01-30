@@ -1,6 +1,7 @@
 import React from 'react'
 import ProjectData from '../data.json'
 import ProjectItem from './ProjectItem'
+import Hero from './Hero'
 
 export default class Projects extends React.Component{
     constructor(props){
@@ -27,8 +28,7 @@ export default class Projects extends React.Component{
           
        return(
         <div className="projects">
-            {console.log("Loading Projects")}
-            <h1>Projects:</h1>
+            <Hero/>
             {this.createProjects(ProjectData)}
         </div>
        )
