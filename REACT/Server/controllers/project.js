@@ -21,7 +21,7 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 
 
-router.get('/api', function(req, res, next) {
+router.get('/', function(req, res, next) {
   console.log("Getting projects");
   
   Project.find().
@@ -36,20 +36,19 @@ router.get('/api', function(req, res, next) {
       });
   });
 
-router.get('/:id', function(req, res, next) {
-  console.log("Getting project with id : ", req.params.id);
+router.get('/:slug', function(req, res, next) {
+  console.log("Getting project with slug : ", req.params.slug);
 
-  var project;
-  var id={_id:req.params.id};
+  var slug={slug:req.params.slug};
 
-  Project.find(id).
+  Project.find(slug).
     exec(function (err, entry) {
       if (err){
         console.log("Could not find Projects error: "+ err);
         return next(err);
       }
-      project=entry[0];
-      res.render('projectDetail', project);
+      console.log("Found project", entry[0]);
+      res.send(JSON.stringify(entry[0]));
   });
 });
 

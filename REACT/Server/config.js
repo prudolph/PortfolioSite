@@ -12,16 +12,15 @@ var config = {
       name: 'Portfolio-Dev'
     },
     port: process.env.PORT || 3000,
-    db: 'mongodb://localhost/projects'
+    db: process.env.MONGODB_URI || `mongodb://${process.env.DBUNAME}:${process.env.DBPASS}@ds135592.mlab.com:35592/heroku_3cmc1jsl`
   },
-
   test: {
     root: rootPath,
     app: {
       name: 'Portfolio--TEST'
     },
     port: process.env.PORT || 3000,
-    db: 'mongodb://localhost/projects'
+    db: process.env.MONGODB_URI || `mongodb://${process.env.DBUNAME}:${process.env.DBPASS}@ds135592.mlab.com:35592/heroku_3cmc1jsl`
   },
 
   production: {
