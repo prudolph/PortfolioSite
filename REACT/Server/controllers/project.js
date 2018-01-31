@@ -30,6 +30,7 @@ router.get('/', function(req, res, next) {
         console.log("Could not find Projects error: "+ err);
         return next(err);
       }else{
+        
         res.send(JSON.stringify(projects));
       }
       

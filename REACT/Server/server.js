@@ -9,10 +9,10 @@ const config = require('./config');
 
 
 const bodyParser = require('body-parser');
-
+/*
 const MongoClient = require('mongodb').MongoClient
   , Server = require('mongodb').Server;
-
+*/
 const glob = require("glob");
 const passport = require("passport");
 
@@ -23,12 +23,12 @@ const admin = require('./controllers/admin');
 const publicPath = path.join(__dirname,'..','public');
 
 
-
+/*
 const models = glob.sync(config.root + '/app/models/*.js');
 models.forEach(function (model) {
   require(model);
 });
-
+*/
 
 
 // serve static assets from the public folder in project root
