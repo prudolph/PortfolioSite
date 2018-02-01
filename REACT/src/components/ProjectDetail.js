@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
+import Modal from 'react-modal'
+
+
 
 class ProjectDetail extends Component {
   constructor(props) {
     super(props);
-    console.log("Project Detail", this);
+    
+    console.log("Project Detail", props);
     this.close = this.close.bind(this);
   }
 
@@ -11,7 +15,16 @@ class ProjectDetail extends Component {
   close() {this.props.closeCallback(this)}
 
   render() {
-    return (
+    return ( 
+      <Modal 
+        isOpen={!!this.props.selectedProject}
+        onRequestClose ={this.props.handleProjectClose}
+        contentLabel = "Project Detail" 
+      >
+      <h3>Project</h3>
+      <button onClick ={this.props.handleProjectClose} >Close</button>
+      </Modal>
+      /*
       <div className="project-overlay-container" onClick={this.close}>
         <div className="project-detail-container">
 
@@ -30,6 +43,11 @@ class ProjectDetail extends Component {
         </div>
 
       </div>
+      */
+   
+     
+
+
     );
   }
 }
