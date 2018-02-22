@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import Modal from 'react-modal'
-
+import renderHTML from 'react-render-html';
+ 
 
 
 class ProjectDetail extends Component {
   constructor(props) {
     super(props);
     
-    console.log("Project Detail", this.props);
+    console.log("Project Detail", this.props.projectData);
     this.close = this.close.bind(this);
   }
 
@@ -17,15 +18,22 @@ class ProjectDetail extends Component {
   }
   close() {this.props.closeCallback(this)}
 
+
   render() {
     return ( 
       <Modal 
-        isOpen={!!this.props.selectedProject}
+        isOpen={!!this.props.projectData}
         onRequestClose ={this.props.handleProjectClose}
         contentLabel = "Project Detail" 
-        
       >
-      <h3>Project</h3>
+ 
+      <h3 className="title">{this.props.projectData.title}</h3>
+      <div className="subtitle">
+       {renderHTML(this.props.projectData.subtitle)}
+      </div>
+      <p className="description">{renderHTML(this.props.projectData.description)}</p>
+      <p className="facts">{renderHTML(this.props.projectData.facts)}</p>
+      <p className="tags">{this.props.projectData.tags}</p>
       <button onClick ={this.props.handleProjectClose} >Close</button>
       </Modal>
       /*

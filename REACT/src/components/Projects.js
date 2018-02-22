@@ -6,83 +6,81 @@ import ProjectDetail from './ProjectDetail'
 import Hero from './Hero'
 
 
-export default class Projects extends React.Component{
-    
-    constructor(props){
-        super(props);
-        this.state = {
-            projectData: [],
-            selectedProject:undefined
+export default class Projects extends React.Component {
 
-        };
-    }
+	constructor(props) {
+		super(props);
+		this.state = {
+			projectData: [],
+			selectedProject: undefined
 
-    componentDidMount() {
-        console.log("Projects Component did mount"); 
-        fetch('http://localhost:3000/api/projects')
-        .then(response => response.json())
-        .then(data => this.setState({ projectData: data }));
-    }
+		};
+	}
 
-    handleProjectSelect(projectSlug){
-        const foundProject =  this.state.projectData.find(({slug})=>{return slug===projectSlug;});
-      
-        this.setState({selectedProject:foundProject},()=>{
+	componentDidMount() {
+		console.log("Projects Component did mount");
+		fetch('http://localhost:3000/api/projects')
+			.then(response => response.json())
+			.then(data => this.setState({ projectData: data }));
+	}
 
-            console.log("displaying prject ", this.state.selectedProject)
-        })
-    }
-    handleProjectClose(){
-        this.setState({selectedProject:undefined})
-    }
+	handleProjectSelect(projectSlug) {
+		const foundProject = this.state.projectData.find(({ slug }) => { return slug === projectSlug; });
 
-    createProjects(data){
-        var Projects = [];        
-        for (var project in data) {
-             const projObj = data[project];
-        
-             try{
-                const [imageUrlString]= projObj.mediaUrls
-                const imageUrl = JSON.parse(imageUrlString).url;
+		this.setState({ selectedProject: foundProject })
+	}
+	handleProjectClose() {
+		this.setState({ selectedProject: undefined })
+	}
 
-                const {_id:key,slug,title}=projObj;
-                Projects.push( 
-                    <ProjectItem 
-                        handleProjectSelect ={this.handleProjectSelect.bind(this,slug)}
-                        key={key}  
-                        title={title} 
-                        image={imageUrl}
-                        />
-                );
+	createProjects(data) {
+		var Projects = [];
+		for (var project in data) {
+			const projObj = data[project];
 
-                } catch(e){
-                    console.log("could not load image");
-                }
-        
-        }
-        return Projects;
-      }
-    createProjectDetail(){
-        console.log("createProjectDetail");
-       return( <ProjectDetail 
-        handleProjectClose = {this.handleProjectClose.bind(this)}
-        selectedProject={this.state.selectedProject}
-    />)
+			try {
+				const [imageUrlString] = projObj.mediaUrls
+				const imageUrl = JSON.parse(imageUrlString).url;
 
-    }
+				const { _id: key, slug, title } = projObj;
+				Projects.push(
+					<ProjectItem
+						handleProjectSelect={this.handleProjectSelect.bind(this, slug)}
+						key={key}
+						title={title}
+						image={imageUrl}
+					/>
+				);
 
-      render(){
-          
-       return(
-          
-        <div className="projects">
-            <Hero/>
-            {this.createProjects(this.state.projectData)}
-          
-            {this.createProjectDetail.bind(this)}
-          
-       
-        </div>
-       )
-      }
+			} catch (e) {
+				console.log("could not load image");
+			}
+
+		}
+		return Projects;
+	}
+
+	displayDetail() {
+
+		if (this.state.selectedProject) {
+			return (
+				<ProjectDetail
+					handleProjectClose={this.handleProjectClose.bind(this)}
+					projectData={this.state.selectedProject}
+				/>
+			)
+		}
+		else return
+	}
+	render() {
+
+		return (
+
+			<div className="projects">
+				<Hero />
+				{this.createProjects(this.state.projectData)}
+				{this.displayDetail()}
+			</div>
+		)
+	}
 }
