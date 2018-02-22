@@ -33,7 +33,11 @@ models.forEach(function (model) {
 
 // serve static assets from the public folder in project root
 app.use(express.static(publicPath)) 
-
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 //module.exports = require('./config/express')(app, config);
 
 app.listen(config.port, function () {

@@ -7,11 +7,14 @@ class ProjectDetail extends Component {
   constructor(props) {
     super(props);
     
-    console.log("Project Detail", props);
+    console.log("Project Detail", this.props);
     this.close = this.close.bind(this);
   }
 
+  componentWillMount(){
+    Modal.setAppElement('body');
 
+  }
   close() {this.props.closeCallback(this)}
 
   render() {
@@ -20,6 +23,7 @@ class ProjectDetail extends Component {
         isOpen={!!this.props.selectedProject}
         onRequestClose ={this.props.handleProjectClose}
         contentLabel = "Project Detail" 
+        
       >
       <h3>Project</h3>
       <button onClick ={this.props.handleProjectClose} >Close</button>

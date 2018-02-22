@@ -18,50 +18,58 @@ export default class Projects extends React.Component{
     }
 
     componentDidMount() {
-        console.log("Component did mount"); 
+        console.log("Projects Component did mount"); 
         fetch('http://localhost:3000/api/projects')
         .then(response => response.json())
         .then(data => this.setState({ projectData: data }));
     }
 
-    handleProjectSelect(project){
-        console.log("Project selected ",project);
-        this.setState({
-            selectedProject:true
+    handleProjectSelect(projectSlug){
+        const foundProject =  this.state.projectData.find(({slug})=>{return slug===projectSlug;});
+      
+        this.setState({selectedProject:foundProject},()=>{
+
+            console.log("displaying prject ", this.state.selectedProject)
         })
     }
     handleProjectClose(){
-        console.log("Project close");
-        this.setState({
-            selectedProject:false
-        })
-
+        this.setState({selectedProject:undefined})
     }
 
     createProjects(data){
-        var Projects = [];
-        
+        var Projects = [];        
         for (var project in data) {
              const projObj = data[project];
-         /*
-             console.log("Project: ", projObj);
-             console.log("Project ID : ", projObj['_id']);
-             console.log("Project Name : ", projObj['title']);
-           */  
-             
-         
-           Projects.push( 
-           <ProjectItem 
-            handleProjectSelect ={this.handleProjectSelect.bind(this)}
-            key={projObj['_id']}  
-            name={projObj['title']} 
-            data={projObj}/>
-        );
+        
+             try{
+                const [imageUrlString]= projObj.mediaUrls
+                const imageUrl = JSON.parse(imageUrlString).url;
+
+                const {_id:key,slug,title}=projObj;
+                Projects.push( 
+                    <ProjectItem 
+                        handleProjectSelect ={this.handleProjectSelect.bind(this,slug)}
+                        key={key}  
+                        title={title} 
+                        image={imageUrl}
+                        />
+                );
+
+                } catch(e){
+                    console.log("could not load image");
+                }
+        
         }
         return Projects;
       }
+    createProjectDetail(){
+        console.log("createProjectDetail");
+       return( <ProjectDetail 
+        handleProjectClose = {this.handleProjectClose.bind(this)}
+        selectedProject={this.state.selectedProject}
+    />)
 
-
+    }
 
       render(){
           
@@ -70,10 +78,10 @@ export default class Projects extends React.Component{
         <div className="projects">
             <Hero/>
             {this.createProjects(this.state.projectData)}
-            <ProjectDetail 
-                 handleProjectClose = {this.handleProjectClose.bind(this)}
-                selectedProject={this.state.selectedProject}
-            />
+          
+            {this.createProjectDetail.bind(this)}
+          
+       
         </div>
        )
       }
