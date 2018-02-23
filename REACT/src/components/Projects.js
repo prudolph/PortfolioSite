@@ -34,7 +34,7 @@ export default class Projects extends React.Component {
 	}
 
 	createProjects(data) {
-		var Projects = [];
+		var projects = [];
 		for (var project in data) {
 			const projObj = data[project];
 
@@ -43,7 +43,7 @@ export default class Projects extends React.Component {
 				const imageUrl = JSON.parse(imageUrlString).url;
 
 				const { _id: key, slug, title } = projObj;
-				Projects.push(
+				projects.push(
 					<ProjectItem
 						handleProjectSelect={this.handleProjectSelect.bind(this, slug)}
 						key={key}
@@ -57,7 +57,7 @@ export default class Projects extends React.Component {
 			}
 
 		}
-		return Projects;
+		return projects;
 	}
 
 	displayDetail() {

@@ -1,67 +1,73 @@
 import React, { Component } from 'react';
 import Modal from 'react-modal'
 import renderHTML from 'react-render-html';
- 
+import { Carousel } from 'react-responsive-carousel';
 
+import styles from 'react-responsive-carousel/lib/styles/carousel.min.css';
+ 
 
 class ProjectDetail extends Component {
-  constructor(props) {
-    super(props);
-    
-    console.log("Project Detail", this.props.projectData);
-    this.close = this.close.bind(this);
-  }
+	constructor(props) {
+		super(props);
 
-  componentWillMount(){
-    Modal.setAppElement('body');
+		console.log("Project Detail", this.props.projectData);
+		this.close = this.close.bind(this);
+		this.renderImages = this.renderImages.bind(this);
+	}
 
-  }
-  close() {this.props.closeCallback(this)}
+	componentWillMount() {
+		Modal.setAppElement('body');
+		this.renderImages();
+	}
+	close() { this.props.closeCallback(this) }
 
-
-  render() {
-    return ( 
-      <Modal 
-        isOpen={!!this.props.projectData}
-        onRequestClose ={this.props.handleProjectClose}
-        contentLabel = "Project Detail" 
-      >
- 
-      <h3 className="title">{this.props.projectData.title}</h3>
-      <div className="subtitle">
-       {renderHTML(this.props.projectData.subtitle)}
-      </div>
-      <p className="description">{renderHTML(this.props.projectData.description)}</p>
-      <p className="facts">{renderHTML(this.props.projectData.facts)}</p>
-      <p className="tags">{this.props.projectData.tags}</p>
-      <button onClick ={this.props.handleProjectClose} >Close</button>
-      </Modal>
-      /*
-      <div className="project-overlay-container" onClick={this.close}>
-        <div className="project-detail-container">
-
-          <img className="close-btn" onClick={this.close}  src='./closebtn.png'></img>
-          
-          <div className="project-content">
-            <div className="project-image"> <img src={this.props.data.imagePath_detail}></img> </div>
-            <div className="project-copy">
-              <p className="project-title"> {this.props.data.destination}</p>
-              <p className="project-subtitle">{this.props.data.teaser}</p>
-              
-              <p className="project-description" dangerouslySetInnerHTML={{__html: this.props.data.description}} />
-            
-            </div>
-          </div>
-        </div>
-
-      </div>
-      */
-   
-     
+	renderImages() {
+		console.log("Render Images");
 
 
-    );
-  }
+		var images = [];
+
+		for (var imageIndex in this.props.projectData.mediaUrls) {
+			const imageData = JSON.parse(this.props.projectData.mediaUrls[imageIndex]);
+			images.push(imageData.url)
+		}
+		this.setState({images})
+	}
+
+	render() {
+		return (
+			<Modal
+				isOpen={!!this.props.projectData}
+				onRequestClose={this.props.handleProjectClose}
+				contentLabel="Project Detail"
+			>
+				<div>
+					
+					<h3 className="title">{this.props.projectData.title}</h3>
+					<div className="subtitle">{renderHTML(this.props.projectData.subtitle)} </div>
+					<p className="description">{renderHTML(this.props.projectData.description)}</p>
+					<p className="facts">{renderHTML(this.props.projectData.facts)}</p>
+					<p className="tags">{this.props.projectData.tags}</p>
+					
+					<Carousel axis="horizontal" showArrows={false} >
+						{}
+						{this.state.images.map(
+							(image,index)=>{
+                    		return <div key={index}><img src={image}/> <p className="legend">Legend 3</p></div>;
+						  })
+						  }
+					</Carousel>
+
+					<button onClick={this.props.handleProjectClose} >Close</button>
+				</div>
+			</Modal>
+	
+
+
+
+
+		);
+	}
 }
 
 export default ProjectDetail;
