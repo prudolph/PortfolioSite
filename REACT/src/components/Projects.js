@@ -22,6 +22,8 @@ export default class Projects extends React.Component {
 		fetch('http://localhost:3000/api/projects')
 			.then(response => response.json())
 			.then(data => this.setState({ projectData: data }));
+
+		
 	}
 
 	handleProjectSelect(projectSlug) {

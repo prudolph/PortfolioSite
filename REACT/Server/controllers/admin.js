@@ -126,15 +126,13 @@ router.post('/editProject/:id' ,function(req, res, next) {
 
 
 router.get('/bio/', function(req, res, next) {
-//{_id:req.params.id}
   Bio.findOne({_id:0}).
     exec(function (err, bio) {
       if (err){
         console.log("Could not find Bio, create new: "+ err);
-        res.render('projectForm', {"postUrl":"/admin/bio/","form":"bio"});
       }
       console.log("bio",bio);
-      res.render('projectForm', {"data":JSON.stringify(bio),"postUrl":"/admin/bio/","form":"bio"});
+      res.send(bio);
   });
 });
 

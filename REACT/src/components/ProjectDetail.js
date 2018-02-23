@@ -49,7 +49,7 @@ class ProjectDetail extends Component {
 					<p className="facts">{renderHTML(this.props.projectData.facts)}</p>
 					<p className="tags">{this.props.projectData.tags}</p>
 					
-					<Carousel axis="horizontal" showArrows={true} showThumbs={false} showStatus={false} infiniteLoop={true} autoPlay={true} emulateTouch={true} >
+					<Carousel axis="horizontal" width={"50%"}showArrows={true} showThumbs={false} showStatus={false} infiniteLoop={true} autoPlay={true} emulateTouch={true} >
 						{}
 						{this.state.images.map(
 							(image,index)=>{

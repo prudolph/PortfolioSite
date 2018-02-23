@@ -48,7 +48,6 @@ router.get('/:slug', function(req, res, next) {
         console.log("Could not find Projects error: "+ err);
         return next(err);
       }
-      console.log("Found project", entry[0]);
       res.send(JSON.stringify(entry[0]));
   });
 });

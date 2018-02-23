@@ -85,7 +85,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 //app.use(passport.initialize());
 
 app.use('/api/projects', project);
-app.use('/api/admin', passport.authenticate('admin', { session: false }) ,admin);
+app.use('/api/admin' ,admin);
 app.get('*',(req,res)=>{
   res.sendFile(path.join(publicPath,'/index.html'));
 })
