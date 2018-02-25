@@ -10,7 +10,6 @@ class Hero extends Component {
 	}
 
   componentWillMount() {
-		console.log("Projects Component did mount");
 		fetch('http://localhost:3000/api/admin/bio')
 			.then(response => response.json())
 			.then(data => this.setState({ bioData: data },()=>{
@@ -20,11 +19,8 @@ class Hero extends Component {
   
   render() {
     return (
-      <div className="hero">
-        <div className="hero__title">
-       {!!this.state.bioData.description && renderHTML(this.state.bioData.description)}
-          
-        </div>
+      <div className="hero__container">
+       {!!this.state.bioData.description && renderHTML(this.state.bioData.description)}          
       </div>
     );
   }

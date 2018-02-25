@@ -23,7 +23,7 @@ export default class Projects extends React.Component {
 			.then(response => response.json())
 			.then(data => this.setState({ projectData: data }));
 
-		
+
 	}
 
 	handleProjectSelect(projectSlug) {
@@ -77,11 +77,13 @@ export default class Projects extends React.Component {
 	render() {
 
 		return (
-
-			<div className="projects">
+			<div>
 				<Hero />
-				{this.createProjects(this.state.projectData)}
-				{this.displayDetail()}
+				<div className="projects">
+
+					{this.createProjects(this.state.projectData)}
+					{this.displayDetail()}
+				</div>
 			</div>
 		)
 	}
