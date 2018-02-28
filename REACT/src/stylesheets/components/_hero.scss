@@ -1,11 +1,10 @@
-.hero__container{
-  margin-top:-10px;
+.hero{
   background-color: $light-gray;
+  
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 50% 50%;
   font-family: $text;
-  height:500px;
   font-size:10pt;
   letter-spacing: 4px;
   line-height: $font-lrg;
@@ -70,4 +69,11 @@
     p{
       margin-left: 15px;
     }
+};
+
+.bioImage{
+  width:50px;
+  height:50px;
+  border-radius: 25px;
+
 };

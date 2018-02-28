@@ -1,6 +1,7 @@
 
 require('dotenv').config()
 process.env.S3_REGION
+
 var path = require('path'),
     rootPath = path.normalize(__dirname + '/..'),
     env = process.env.NODE_ENV || 'development';
