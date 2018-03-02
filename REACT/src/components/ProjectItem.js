@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import renderHTML from 'react-render-html';
 
 class ProjectItem extends React.Component {
   constructor(props) {
@@ -13,6 +13,7 @@ class ProjectItem extends React.Component {
         onClick={this.props.handleProjectSelect}>
         <img className="projectItem__image" src={this.props.image} alt="project" />
         {<h1 className="projectItem__title">{this.props.title}</h1>}
+        {<div className="projectItem__subtitle">{renderHTML(this.props.subtitle)}</div>}
 
       </div>
     );

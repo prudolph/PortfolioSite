@@ -22,7 +22,10 @@
 	  }
 
   }
+.projectItem:hover{
+	box-shadow: 0 10px 12px rgba(204, 197, 185, 0.75);
 
+}
   .projectItem__image{
 	width:100%;
 	max-height:300px;
@@ -42,12 +45,12 @@
 		margin-left:10px;
   }
 
-  .project-description{
-	color: $black;
-	font-size:14px;
-	font-family: $raleway_font;;
-	letter-spacing: $letter-space;
-	text-align: left;
-
+  .projectItem__subtitle{
+		color: $black;
+		margin:10px;
+		font-size:14px;
+		font-family: $raleway_font;
+		letter-spacing: $letter-space;
+		text-align: left;
   }
 

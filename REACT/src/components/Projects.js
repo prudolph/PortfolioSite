@@ -39,18 +39,19 @@ export default class Projects extends React.Component {
 		var projects = [];
 		for (var project in data) {
 			const projObj = data[project];
-
+			console.log("PROPOBJ ", projObj);
 			try {
 				const [imageUrlString] = projObj.mediaUrls
 				const imageUrl = JSON.parse(imageUrlString).url;
 
-				const { _id: key, slug, title } = projObj;
+				const { _id: key, slug, title ,subtitle} = projObj;
 				projects.push(
 					<ProjectItem
 						handleProjectSelect={this.handleProjectSelect.bind(this, slug)}
 						key={key}
 						title={title}
 						image={imageUrl}
+						subtitle={subtitle}
 					/>
 				);
 

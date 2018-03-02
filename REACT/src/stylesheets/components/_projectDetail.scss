@@ -1,3 +1,74 @@
+
+.ReactModal__Body--open{
+    overflow: hidden;
+    position: fixed;
+}
+.projectDetail__carousel{
+    margin: auto;
+    padding-top: 50px;
+    
+}
+.projectDetail__info{
+
+	display:flex;
+	justify-content: space-between;
+	width:100%;
+	align-items: center;
+
+	@media all and (max-width: $mobile-app-width) {
+		align-items: center;
+		flex-direction: column;
+	  }
+}
+.projectDetail__closeBtn{
+    position: absolute;
+    right: 15px;
+	background-color: rgba(0,0,0,0); 
+    border: none;
+    color: black;
+    padding: 6px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+	font-size: 20px;
+
+}
+
+.projectDetail__closeBtn:hover{
+
+	background-color:$light-clr;
+	color: white;
+	border-radius:  30px;
+}
+.projectDetail__title{
+
+	font-family:$raleway_font;
+	font-size:  $font-lrg;
+	@media all and (max-width: $mobile-app-width) {
+		text-align: center;
+	  }
+}
+
+.projectDetail__description{
+	max-width: 70%;
+	font-family: $raleway_font;
+	font-size:10pt;
+	
+	@media all and (max-width: $mobile-app-width) {
+		text-align: center;
+	  }
+}
+.projectDetail__facts{
+
+	background-color: $accent-clr;
+	max-width: 30%;
+	padding:30px;
+	margin:50px 50px;
+
+}
+////////////////////////////////
+
+
 .project-detail-container {
   position:fixed;
   top:0;
