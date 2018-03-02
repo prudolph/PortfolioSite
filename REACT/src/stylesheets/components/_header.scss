@@ -1,18 +1,17 @@
 
   .header__container{
-    background-color: $black;
+    background-color: $light-gray;
     width:100%;
- 
     display:flex;
     flex-flow: wrap;
-    justify-content: space-around;
+    justify-content: flex-start;
     margin:0px auto;
 }
+
 .header__links{
-
-  font-family:$sub_font;
-
+  font-family:$robo_font;
 }
+
 .header__pageLink{
       order:2;
       align-self: stretch;
@@ -39,18 +38,17 @@
 .header--activePage{
   text-decoration: underline;
   text-decoration-color: $gray;
-  
 }
 
 .header__title{
-  background-color: $black;
   color:$white;
-  font-family:$header_font;
+  font-family:$raleway_font;
   font-size:2rem;
   letter-spacing: 3px;
-  font-family:$header_font;
+ 
   font-size: $font-xlrg;
   text-transform: uppercase;
-  color:$white;
+  margin-left:50px;
+  
 }
 

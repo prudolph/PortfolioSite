@@ -1,34 +1,38 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway|Roboto+Condensed|Montserrat');
 
-$font-title:  'Canela-Regular';
-$font-bold:   'FoundersGroteskCond-Bold';
-$font-normal: 'FoundersGrotesk-Light';
-$font-italic: 'FarnhamDisplay-RegularItal';
 
-$header_font:'Raleway', sans-serif;
+$raleway_font:'Raleway', sans-serif;
 $robo_font:'Roboto+Condensed';
-$sub_font:'Roboto', sans-serif;;
-$text:'Montserrat Light', sans-serif;
+$mont_font:'Montserrat Light', sans-serif;
+
+
 
 
 // Colors
+$light-gray:#C3BDC1;
+$bkg-white :#F4F4F5;
+$fore-white:#f8fafb;
 $black:       #000000;
-$light-gray:  #393d51;
+
+
+
 $gray:        #808285;
 $dark-gray:   #818285;
 $darker-gray:  #231f20;
 $white:       #ffffff;
-$red:         #ee566c;
 
 
 $bkg-clr:#FFFFFF;
-$hero-clr:#818285;
+$hero-clr:$white;
 $txt-clr:#d2d0d4;
 $title-clr:#d2d0d4;
 
 
 //sizes
-
 $font-xlrg: 2.2rem;
 $font-lrg: 2rem;
+$font-sm: 1.6rem;
 $letter-space: 1px;
+
+$mobile-app-width:700px;
+$borderRadius:5px;
