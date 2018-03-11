@@ -1,3 +1,4 @@
+require('dotenv').load();
 import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/configureStore';
@@ -27,13 +28,12 @@ firebase.auth().onAuthStateChanged((user)=>{
         console.log("CURRENT LOCATION:::: ",history.location.pathname)
         if(history.location.pathname ==="/login"){
             history.push('/admin/projects');
-        }
-        
-          
+        }  
+
+        console.log("process.env.VALIDUSERID",process.env.VALIDUSERID)
     }else{
         store.dispatch(logout());
         console.log("USER LOGGED OUT")
-        
     }
 
 })
