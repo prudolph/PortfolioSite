@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/configureStore';
-import AppRouter from './routers/AppRouter.js'
+import AppRouter,{history} from './routers/AppRouter.js'
+import { login , logout } from './actions/auth'
+
 import 'normalize.css/normalize.css';
 import './stylesheets/main.scss'
 import {firebase} from './firebase/firebase'
@@ -17,11 +19,21 @@ const jsx = (
 
 ReactDOM.render(jsx,document.getElementById('app'));
 
+
 firebase.auth().onAuthStateChanged((user)=>{
     if(user){
+        store.dispatch(login(user.uid));
         console.log("USER LOGGED IN ");
+        console.log("CURRENT LOCATION:::: ",history.location.pathname)
+        if(history.location.pathname ==="/login"){
+            history.push('/admin/projects');
+        }
+        
+          
     }else{
+        store.dispatch(logout());
         console.log("USER LOGGED OUT")
+        
     }
 
 })

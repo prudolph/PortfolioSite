@@ -18,7 +18,7 @@ export default class Projects extends React.Component {
 	}
 
 	componentDidMount() {
-		console.log("Projects Component did mount");
+		//console.log("Projects Component did mount");
 		fetch('http://localhost:3000/api/projects')
 			.then(response => response.json())
 			.then(data => this.setState({ projectData: data }));
@@ -39,7 +39,7 @@ export default class Projects extends React.Component {
 		var projects = [];
 		for (var project in data) {
 			const projObj = data[project];
-			console.log("PROPOBJ ", projObj);
+			//console.log("PROPOBJ ", projObj);
 			try {
 				const [imageUrlString] = projObj.mediaUrls
 				const imageUrl = JSON.parse(imageUrlString).url;

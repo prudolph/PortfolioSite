@@ -1,27 +1,37 @@
 import React from 'react';
-import { BrowserRouter , Route,Switch} from 'react-router-dom';
-
+import { Router , Route,Switch} from 'react-router-dom';
+import createHistory from 'history/createBrowserHistory';
 import Header from '../components/Header'
 import Projects from '../components/Projects'
 import About from '../components/About'
 import Posts from '../components/Posts'
 import NotFound from '../components/NotFound'
+
 import LoginPage from '../components/Admin/LoginPage'
+import ProjectListPage from '../components/Admin/ProjectListPage'
+import ProjectEditPage from '../components/Admin/EditProjectPage'
+
+import PrivateRoute from './PrivateRoute'
+
+
+export const history = createHistory();
 
  const AppRouter = () =>(
 
-    <BrowserRouter>
+    <Router history={history}>
     <div>
         <Header/>
         <Switch>
             <Route exact path="/" component={Projects}/>
-            <Route path="/admin" component={LoginPage}/>
+            <Route exact path="/login" component={LoginPage}/>
+            <PrivateRoute path="/admin/" component={ProjectListPage}/>
+            <PrivateRoute path="/admin/projects/edit/:id" component={ProjectEditPage}/>
             <Route path="/about" component={About}/>
             <Route path="/posts" component={Posts}/>
             <Route component={NotFound}/>
         </Switch>
     </div>
-    </BrowserRouter>
+    </Router>
 
  )
 

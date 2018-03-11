@@ -10,7 +10,7 @@ class ProjectDetail extends Component {
 	constructor(props) {
 		super(props);
 
-		console.log("Project Detail", this.props.projectData);
+		//console.log("Project Detail", this.props.projectData);
 		this.close = this.close.bind(this);
 		this.renderImages = this.renderImages.bind(this);
 	}
