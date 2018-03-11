@@ -20,7 +20,7 @@ const project = require('./controllers/project');
 const admin = require('./controllers/admin');
 
 
-const publicPath = path.join(__dirname,'..','public');
+const publicPath = path.join(__dirname,'..','Server','public');
 
 
 /*
@@ -87,7 +87,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/api/projects', project);
 app.use('/api/admin' ,admin);
 app.get('*',(req,res)=>{
-  res.sendFile(path.join(publicPath,'/index.html'));
+   res.sendFile(path.join(publicPath,'/index.html'));
 })
 
 module.exports = app;

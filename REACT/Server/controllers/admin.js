@@ -10,8 +10,6 @@ var mongoose = require('mongoose');//.set('debug', true),
 
 require('dotenv').load();
 
-
-
 var Project = require('./../models/project.js');
 var Bio = require('./../models/bio.js');
 
@@ -158,7 +156,6 @@ router.post('/bio/' ,function(req, res, next) {
           console.log("Error Saving "+ error.message );
           return res.render('/admin/bio/', { error_messages: 'Failed to save Project: ' + error.message });
         }
-        console.log("Bio Saved");
         res.redirect('/admin/bio/');
       });
     });

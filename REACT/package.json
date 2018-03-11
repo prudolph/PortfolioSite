@@ -4,10 +4,8 @@
   "main": "index.js",
   "scripts": {
     "serve": "live-server public/",
-    "build:dev": "webpack",
-    "build:prod": "webpack -p --env production",
-    "dev-server": "webpack-dev-server",
-    "start": "Server/server.js"
+    "build:dev": "webpack && node ./Server/server.js",
+    "build:prod": "webpack -p --env production && node ./Server/server.js"
   },
   "dependencies": {
     "aws-sdk": "^2.183.0",
@@ -20,6 +18,7 @@
     "csv-parse": "^1.2.0",
     "extract-text-webpack-plugin": "^3.0.2",
     "fetch": "^1.1.0",
+    "firebase": "^4.11.0",
     "fs": "0.0.1-security",
     "glob": "^7.1.2",
     "html-to-react": "^1.2.8",
@@ -41,11 +40,15 @@
     "react-router-dom": "^4.2.2",
     "react-scripts": "0.9.5",
     "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0",
     "reset-css": "^2.2.1",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.19.1",
     "validator": "^9.2.0",
-    "webpack": "^3.10.0",
     "webpack-dev-server": "^2.11.0"
+  },
+  "devDependencies": {
+    "node-hot-loader": "^1.6.0",
+    "webpack": "^3.11.0"
   }
 }
