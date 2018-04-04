@@ -24,8 +24,8 @@ export const history = createHistory();
         <Switch>
             <Route exact path="/" component={Projects}/>
             <Route exact path="/login" component={LoginPage}/>
-            <PrivateRoute path="/admin/" component={ProjectListPage}/>
-            <PrivateRoute path="/admin/projects/edit/:id" component={ProjectEditPage}/>
+            <Route path="/admin/" component={ProjectListPage}/>
+            <Route path="/admin/projects/edit/:id" component={ProjectEditPage}/>
             <Route path="/about" component={About}/>
             <Route path="/posts" component={Posts}/>
             <Route component={NotFound}/>

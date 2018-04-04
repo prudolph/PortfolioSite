@@ -5,7 +5,8 @@
   "scripts": {
     "serve": "live-server public/",
     "build:dev": "webpack && node ./Server/server.js",
-    "build:prod": "webpack -p --env production && node ./Server/server.js"
+    "build:prod": "webpack -p --env production && node ./Server/server.js",
+    "dev-server": "webpack-dev-server"
   },
   "dependencies": {
     "aws-sdk": "^2.183.0",
@@ -54,6 +55,7 @@
   },
   "devDependencies": {
     "node-hot-loader": "^1.6.0",
-    "webpack": "^3.11.0"
+    "webpack": "^3.11.0",
+    "webpack-hot-middleware": "^2.21.2"
   }
 }

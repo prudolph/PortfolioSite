@@ -1,7 +1,7 @@
 
 
 export default (state = {} , action) =>{
-  console.log("AUTH REDUCER", action);
+
   switch(action.type){
 
     case 'LOGIN':
