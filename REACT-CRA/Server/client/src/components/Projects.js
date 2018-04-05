@@ -2,8 +2,8 @@ import React from 'react'
 
 import ProjectItem from './ProjectItem'
 import ProjectDetail from './ProjectDetail'
-
 import Hero from './Hero'
+import {firebase} from '../firebase/firebase'
 
 
 export default class Projects extends React.Component {
@@ -13,22 +13,33 @@ export default class Projects extends React.Component {
 		this.state = {
 			projectData: [],
 			selectedProject: undefined
-
 		};
+
+		this.database = firebase.database();
 	}
 
 	componentDidMount() {
-		//console.log("Projects Component did mount");
-		fetch('http://localhost:3000/api/projects')
-			.then(response => response.json())
-			.then(data => this.setState({ projectData: data }));
-
-
+		
+		//fetch('http://localhost:3000/api/projects')
+		//	.then(response => response.json())
+		//	.then(data => this.setState({ projectData: data }));
+		var self = this;
+		this.database.ref('projects')
+			.ref.once("value")
+  			.then(function(snapshot) {
+				var projects =[];
+				snapshot.forEach((childSnapshot)=> {
+					projects.push( childSnapshot.val());	
+				})
+				self.setState({projectData:projects})
+	
+			
+  	});
+	
 	}
-
+	
 	handleProjectSelect(projectSlug) {
 		const foundProject = this.state.projectData.find(({ slug }) => { return slug === projectSlug; });
-
 		this.setState({ selectedProject: foundProject })
 	}
 	handleProjectClose() {
@@ -38,25 +49,45 @@ export default class Projects extends React.Component {
 	createProjects(data) {
 		var projects = [];
 		for (var project in data) {
+		
 			const projObj = data[project];
 			//console.log("PROPOBJ ", projObj);
 			try {
-				const [imageUrlString] = projObj.mediaUrls
-				const imageUrl = JSON.parse(imageUrlString).url;
-
+				const imagesJsonString = "["+projObj.mediaURLS+"]"
+			
+				const imageUrlData = JSON.parse(imagesJsonString);
+				
+				console.log("Image Url String ", imageUrlData);
+				
+				var imageUrl="";
+				var curOrder=1000;
+				for (var imageObjIndex in imageUrlData){
+					
+					const imageObj = imageUrlData[imageObjIndex];
+					if (imageObj.hero){
+						imageUrl = imageObj.url;
+						break;
+					}
+					else if(imageObj.order < curOrder){
+						imageUrl = imageObj.url;
+					}
+					
+				}
+			if(imageUrl){
 				const { _id: key, slug, title ,subtitle} = projObj;
 				projects.push(
 					<ProjectItem
 						handleProjectSelect={this.handleProjectSelect.bind(this, slug)}
-						key={key}
+						key={slug}
 						title={title}
 						image={imageUrl}
 						subtitle={subtitle}
 					/>
 				);
+			}
 
 			} catch (e) {
-				console.log("could not load image");
+				console.log("could not load image", e);
 			}
 
 		}
