@@ -51,13 +51,11 @@ export default class Projects extends React.Component {
 		for (var project in data) {
 		
 			const projObj = data[project];
-			//console.log("PROPOBJ ", projObj);
 			try {
 				const imagesJsonString = "["+projObj.mediaURLS+"]"
-			
 				const imageUrlData = JSON.parse(imagesJsonString);
 				
-				console.log("Image Url String ", imageUrlData);
+				
 				
 				var imageUrl="";
 				var curOrder=1000;
@@ -112,7 +110,6 @@ export default class Projects extends React.Component {
 			<div>
 				<Hero />
 				<div className="projects">
-
 					{this.createProjects(this.state.projectData)}
 					{this.displayDetail()}
 				</div>

@@ -9,8 +9,7 @@ import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 class ProjectDetail extends Component {
 	constructor(props) {
 		super(props);
-
-		//console.log("Project Detail", this.props.projectData);
+		
 		this.close = this.close.bind(this);
 		this.renderImages = this.renderImages.bind(this);
 	}
@@ -19,17 +18,16 @@ class ProjectDetail extends Component {
 		Modal.setAppElement('body');
 		this.renderImages();
 	}
+	
 	close() { this.props.closeCallback(this) }
 
 	renderImages() {
-		console.log("Render Images");
-
-
 		var images = [];
-
-		for (var imageIndex in this.props.projectData.mediaUrls) {
-			const imageData = JSON.parse(this.props.projectData.mediaUrls[imageIndex]);
-			images.push(imageData.url)
+		const imageData = JSON.parse("["+this.props.projectData.mediaURLS+"]");
+		
+		for (var imageIndex in imageData) {
+			const img=imageData[imageIndex];
+			images.push(img.url)
 		}
 		this.setState({ images })
 	}

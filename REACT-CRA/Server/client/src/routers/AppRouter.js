@@ -10,7 +10,7 @@ import NotFound from '../components/NotFound'
 import LoginPage from '../components/Admin/LoginPage'
 import ProjectListPage from '../components/Admin/ProjectListPage'
 import ProjectEditPage from '../components/Admin/EditProjectPage'
-
+import BioEditPage from '../components/Admin/EditBioPage'
 //import PrivateRoute from './PrivateRoute'
 
 
@@ -26,6 +26,7 @@ export const history = createHistory();
             <Route exact path="/login" component={LoginPage}/>
             <Route exact path="/admin/" component={ProjectListPage}/>
             <Route exact path="/admin/projects/edit/:id" component={ProjectEditPage}/>
+            <Route exact path="/admin/bio/edit/" component={BioEditPage}/>
             <Route exact path="/about" component={About}/>
             <Route path="/posts" component={Posts}/>
             <Route component={NotFound}/>
