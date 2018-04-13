@@ -1,6 +1,7 @@
 import React from 'react'
 import ContentEditor from './ContentEditor'
 import {firebase} from '../../firebase/firebase'
+import moment from 'moment'
 
 
 class EditProjectPage extends React.Component {
@@ -9,25 +10,30 @@ class EditProjectPage extends React.Component {
         super(props);
         const pathname = this.props.location.pathname;
         const projectId  = pathname.substr(pathname.lastIndexOf('/') + 1)
+        
+        console.log("Prject ID", projectId);
+        
         this.state ={
             projectId,
             projectData:{}
         }
         this.database = firebase.database();
+        this.handleChange=this.handleChange.bind(this);
       }
 
       componentWillMount(){
         
-        this.fetchProjectFromOldDatabase();
+        this.fetchProjectFromFirebase();
 
      
       }
 
       fetchProjectFromFirebase(){
-        this.database.ref('projects').once('value')
+        this.database.ref(`projects/${this.state.projectId}`).once('value')
         .then((snapshot) => {
             const val = snapshot.val();
             console.log(val);
+            this.setState({projectData:snapshot.val()})
         })
         .catch((e) => {
             console.log('Error fetching data', e);
@@ -46,8 +52,17 @@ class EditProjectPage extends React.Component {
             })
         });
       }
-     onChangeHandler(e){
-
+     
+     
+      handleChange(e){
+        
+        var title = this.state.projectData.title;
+        console.log("Title ", title);
+        
+        console.log("On change handler target :",e.target.name);
+        var projectData = this.state.projectData;
+        projectData[e.target.name] = e.target.value;
+        this.setState({"projectData":projectData});
         
      }
   
@@ -57,7 +72,7 @@ class EditProjectPage extends React.Component {
             console.log("Description: ",this.refs.description.getCurrentContent());
             
             this.database.ref('projects').push({
-                oldID:this.state.projectData._id,
+                oldID:this.state.projectData.oldID,
                 title:this.refs.title.value,
                 slug:this.refs.title.value,
                 subtitle:this.refs.subtitle.getCurrentContent(),
@@ -79,7 +94,8 @@ class EditProjectPage extends React.Component {
       render() {
 
         
-        var {   title="",
+        var {   
+                title="",
                 description = "",
                 slug="",
                 subtitle="",
@@ -87,8 +103,8 @@ class EditProjectPage extends React.Component {
                 installDate="",
                 tags="",
                 thumbnailURL="",
-                heroUrl:heroURL="",
-                mediaUrls:mediaURLS="" } = this.state.projectData;
+                heroURL="",
+                mediaURLS="" } = this.state.projectData;
 
                 console.log("this.state.projectData ",this.state.projectData)
         return (
@@ -96,11 +112,11 @@ class EditProjectPage extends React.Component {
           
 
             <label htmlFor="title">Title</label>
-            <input type="text" ref = "title" name="title" id="title" value={title}/>
+            <input type="text" ref = "title" name="title" id="title" value={title}   onChange={this.handleChange.bind(this)}/>
             <br/>
             
             <label htmlFor="slug">Slug</label>
-            <input type="text" ref = "slug" name="slug" id="slug" value={slug}/>
+            <input type="text" ref = "slug" name="slug" id="slug" value={slug}  onChange={this.handleChange.bind(this)}/>
             <br/>
 
            <label htmlFor="subtitle">Subtitle</label>
@@ -117,24 +133,24 @@ class EditProjectPage extends React.Component {
             <br/>
            
             <label htmlFor="installDate"> Install Date</label>
-            <input type="date" ref = "installDate" name="installDate" id="installDate" value={Date(installDate)}/>
+            <input type="date" ref = "installDate" name="installDate" id="installDate" value={moment(Date(installDate)).format("YYYY-MM-D")}   onChange={this.handleChange.bind(this)} />
             <br/>
 
             <label htmlFor="tags">Tags</label>
-            <input type="text" ref = "tags" name="tags" id="tags" value={tags}/>
+            <input type="text" ref = "tags" name="tags" id="tags" value={tags}  onChange={this.handleChange.bind(this)}/>
             <br/>
 
             <label htmlFor="thumbnailURL">Thumbnail URL</label>
-            <input type="text" ref = "thumbnailURL" name="thumbnailURL" id="thumbnailURL" value={thumbnailURL}/>
+            <input type="text" ref = "thumbnailURL" name="thumbnailURL" id="thumbnailURL" value={thumbnailURL}  onChange={this.handleChange.bind(this)}/>
             <br/>
 
 
             <label htmlFor="heroURL">Hero URL</label>
-            <input type="text" ref = "heroURL" name="heroURL" id="heroURL" value={heroURL}/>
+            <input type="text" ref = "heroURL" name="heroURL" id="heroURL" value={heroURL}  onChange={this.handleChange.bind(this)} />
             <br/>
 
              <label htmlFor="mediaURLS">Media URLs</label>
-            <textarea ref = "mediaURLS" name="mediaURLS" id="mediaURLS" value={mediaURLS}/>
+            <textarea ref = "mediaURLS" name="mediaURLS" id="mediaURLS" value={mediaURLS}  onChange={this.handleChange.bind(this)}/>
             <br/>
            
             <button className={"saveBtn"} onClick = {this.saveUpdates.bind(this)}>Save</button>

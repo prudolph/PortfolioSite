@@ -48,6 +48,8 @@ class ProjectDetail extends Component {
 				isOpen={!!this.props.projectData}
 				onRequestClose={this.props.handleProjectClose}
 				contentLabel="Project Detail"
+				className="projectDetail__Modal"
+				overlayClassName="projectDetail__Overlay"
 			>	
 				<div className="projectDetail">
 					<button className="projectDetail__closeBtn" onClick={this.props.handleProjectClose} >X</button>
@@ -60,7 +62,7 @@ class ProjectDetail extends Component {
 								var ext = filename.split('.').pop();
 								if(ext =="mp4"){
 										return <div className = "projectDetail_Slide" key={index}>
-											<video src = {assetUrl} autoPlay loop/>
+											<video src = {assetUrl} autoPlay loop muted/>
 										</div>;
 								}else{
 									return <div className = "projectDetail_Slide" key={index}><img src={assetUrl} alt="img"/></div>;
