@@ -13,7 +13,7 @@ export const PrivateRoute = ({
     <Route {...rest} component={(props)=>(
         isAuthenticated?(
             //is authenticated
-         
+     
             <Component {...props }/>
         ):(
             //NOT Authenticated

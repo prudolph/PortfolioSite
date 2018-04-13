@@ -11,7 +11,7 @@ import LoginPage from '../components/Admin/LoginPage'
 import ProjectListPage from '../components/Admin/ProjectListPage'
 import ProjectEditPage from '../components/Admin/EditProjectPage'
 import BioEditPage from '../components/Admin/EditBioPage'
-//import PrivateRoute from './PrivateRoute'
+import PrivateRoute from './PrivateRoute'
 
 
 export const history = createHistory();

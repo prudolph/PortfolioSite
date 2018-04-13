@@ -70,11 +70,11 @@ class EditProjectPage extends React.Component {
 
             console.log("Save Updates")
             console.log("Description: ",this.refs.description.getCurrentContent());
-            
-            this.database.ref('projects').push({
+            console.log("project data ", this.state.projectId);
+            this.database.ref(`projects/${this.state.projectId}`).set({
                 oldID:this.state.projectData.oldID,
                 title:this.refs.title.value,
-                slug:this.refs.title.value,
+                slug:this.refs.slug.value,
                 subtitle:this.refs.subtitle.getCurrentContent(),
                 description: this.refs.description.getCurrentContent(),
                 facts:this.refs.subtitle.getCurrentContent(),
