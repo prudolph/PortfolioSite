@@ -66,7 +66,7 @@ class EditBioPage extends React.Component {
             console.log("Description: ",this.refs.description.getCurrentContent());
             
             this.database.ref('bio').push({
-                oldID:this.state.bioData._id,
+                //oldID:this.state.bioData._id,
                 description: this.refs.description.getCurrentContent(),
                 bioImageUrl:this.refs.bioImageUrl.value
 
@@ -79,8 +79,6 @@ class EditBioPage extends React.Component {
  
       render() {
 
-        console.log("BIO DATA::::: ", this.state.bioData)
-        
         var {   
                 description = "",
                 bioImageUrl="",

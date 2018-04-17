@@ -37,10 +37,15 @@ class Hero extends Component {
   
   render() {
     return (
+    
       <div className="hero">
         {/*<DynamicBkg colors={['#000000','#0000FF','#00FF00','#FF0000']}/>*/}
-        {!!this.state.bioData.bioImageUrl &&(<img className="hero__bioimg" src={this.state.bioData.bioImageUrl}  alt="profileImg" />)}
-        {!!this.state.bioData.description &&  renderHTML("<div className='hero__biotxt'>"+this.state.bioData.description+"</div>")}          
+        <div className="hero_bioData">
+          {!!this.state.bioData.bioImageUrl &&(<img className="hero__bioimg" src={this.state.bioData.bioImageUrl}  alt="profileImg" />)}
+          {!!this.state.bioData.description &&  renderHTML("<div className='hero__biotxt'>"+this.state.bioData.description+"</div>")}          
+        </div>
+        <a className="hero_resume" href="https://s3-us-west-2.amazonaws.com/paulportfoliostorage/Resume_PaulRudolph_2017.pdf">Resume</a>
+
       </div>
     );
   }
