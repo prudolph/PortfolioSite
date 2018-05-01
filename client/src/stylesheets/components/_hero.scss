@@ -1,0 +1,93 @@
+.hero{
+  
+  background-color: $fore-white;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  font-family: $raleway_font;
+  font-size:10pt;
+  letter-spacing: 1px;
+  line-height: $font-lrg;
+  color:$darker-gray;
+  //margin-top:0;
+
+
+  justify-content: center;
+  width:100%;
+  align-items: center;
+
+  padding-bottom: 50px;
+
+
+}
+
+.hero_bioData{
+
+  display:flex;
+  @media all and (max-width: $mobile-app-width) {
+    align-items: center;
+    flex-direction: column;
+  }
+
+}
+  
+.hero_resume{
+  
+    display:flex;
+    width:20%;
+   
+    margin: 0 auto;
+    //margin-bottom:100px;
+    padding:20px;
+    background-color: $dark-clr;
+    justify-content:center;
+    border-radius: $borderRadius;    
+    text-decoration: none;
+    color:white;
+    text-transform: uppercase;
+    font-size:$font-lrg;
+
+    @media all and (max-width: $mobile-app-width) {
+      width:50%;
+    }
+  }
+  .hero_resume:hover{
+    box-shadow: 0 5px 3px rgba(204, 197, 185, 0.75);
+  
+  }
+
+
+  .hero__subtitle{
+    font-family: $raleway_font;
+    font-size:30pt;
+    color:$darker-gray;
+    letter-spacing: -1px;
+ 
+    @media all and (max-width: 200px) {
+      font-size:15pt;
+    }
+
+    p{
+      color:red;
+    }
+  }
+
+.hero__bioimg{
+  display:block;
+  background-color: $light-clr;
+  $imageSize:200px;
+  width: $imageSize;
+  height: $imageSize;
+  border-radius:  $imageSize/2;
+  margin:50px;
+  flex-shrink: 0;
+
+  box-shadow: 0 2px 2px rgba(204, 197, 185, 0.75);
+}
+
+.hero__biotxt{
+  display:block;
+  flex-shrink: 4;
+  margin:50px;
+  
+};
