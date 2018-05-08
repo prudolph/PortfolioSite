@@ -11,6 +11,7 @@ class ProjectDetail extends Component {
 		
 		this.close = this.close.bind(this);
 		this.renderImages = this.renderImages.bind(this);
+		this.isMobileDevice = this.isMobileDevice.bind(this);
 	}
 
 	componentWillMount() {
@@ -30,6 +31,10 @@ class ProjectDetail extends Component {
 		}
 		this.setState({ images })
 	}
+	
+	isMobileDevice() {
+		return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+	};
 
 	render() {
 
@@ -53,33 +58,27 @@ class ProjectDetail extends Component {
 			>	
 				<div className="projectDetail">
 					<button className="projectDetail__closeBtn" onClick={this.props.handleProjectClose} >X</button>
-						  <Slider {...settings}>
-		
+					<Slider {...settings}>
 						{this.state.images.map(
 							(assetUrl, index) => {
-							
 								var filename = assetUrl.split('\\').pop().split('/').pop();
 								var ext = filename.split('.').pop();
-								if(ext =="mp4"){
+								if(ext ==="mp4"){
 										return <div className = "projectDetail_Slide" key={index}>
-											<video src = {assetUrl} autoPlay loop muted/>
+											<video src = {assetUrl} autoPlay loop muted playsInline/>
 										</div>;
 								}else{
 									return <div className = "projectDetail_Slide" key={index}><img src={assetUrl} alt="img"/></div>;
-								}
-						
-							
-								
+								}			
 							})
 						}
 					</Slider>
-					<h3 className="projectDetail__title">{this.props.projectData.title}</h3>
-			
-						<div className="projectDetail__info">
-						<div><p className="projectDetail__description">{renderHTML(this.props.projectData.description)}</p></div>
-						{/*<div><p className="projectDetail__facts">{renderHTML(this.props.projectData.facts)}</p></div>*/}
+					
+					<div className="projectDetail__info">
+						<h3 className="projectDetail__title">{this.props.projectData.title}</h3>
+						<p className="projectDetail__description">{renderHTML(this.props.projectData.description)}</p>
 					</div>
-					{/*<p className="projectDetail__tags">{this.props.projectData.tags}</p>*/}
+					
 					</div>
 			</Modal>
 

@@ -44,7 +44,7 @@ class Hero extends Component {
           {!!this.state.bioData.bioImageUrl &&(<img className="hero__bioimg" src={this.state.bioData.bioImageUrl}  alt="profileImg" />)}
           {!!this.state.bioData.description &&  renderHTML("<div className='hero__biotxt'>"+this.state.bioData.description+"</div>")}          
         </div>
-        <a className="hero_resume" href="https://s3-us-west-2.amazonaws.com/paulportfoliostorage/Resume_PaulRudolph_2017.pdf">Resume</a>
+        <a className="hero_resume" href="https://s3-us-west-2.amazonaws.com/paulportfoliostorage/resume/Resume_PaulRudolph_May2018.pdf">Resume</a>
 
       </div>
     );
