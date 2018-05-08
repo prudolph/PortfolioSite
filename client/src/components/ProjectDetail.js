@@ -57,7 +57,11 @@ class ProjectDetail extends Component {
 				overlayClassName="projectDetail__Overlay"
 			>	
 				<div className="projectDetail">
+				<h3 className="projectDetail__title">{this.props.projectData.title}</h3>
+					
 					<button className="projectDetail__closeBtn" onClick={this.props.handleProjectClose} >X</button>
+						
+					<div className="projectDetail__info">
 					<Slider {...settings}>
 						{this.state.images.map(
 							(assetUrl, index) => {
@@ -73,10 +77,8 @@ class ProjectDetail extends Component {
 							})
 						}
 					</Slider>
-					
-					<div className="projectDetail__info">
-						<h3 className="projectDetail__title">{this.props.projectData.title}</h3>
-						<p className="projectDetail__description">{renderHTML(this.props.projectData.description)}</p>
+				
+							<p className="projectDetail__description">{renderHTML(this.props.projectData.description)}</p>
 					</div>
 					
 					</div>

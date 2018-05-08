@@ -71,10 +71,10 @@
 
 .projectDetail__carousel{
 
-    margin: auto;
+    //margin: auto;
     width:60%;
-    height:50%;
-  
+    
+ 
 }
 
 .projectDetail_Slide{
@@ -82,8 +82,7 @@
 
     max-height: 20%;
     //margin:auto;
-    background-color: white; 
-    background-color: tomato; 
+
     
    img,video{
     width:100%;
@@ -95,18 +94,18 @@
 .projectDetail__info{
 
   display:flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: left;
-	//justify-content: space-between;
-  //width:60%;
+
   height:50%;
-  align-items: center;
+  
   justify-content: center;
 
 	@media all and (max-width: $mobile-app-width) {
     align-items: center;
     text-align: justify;
-    //width:0%;
+    flex-direction: column;
+ 
 	  }
 }
 .projectDetail__closeBtn{
@@ -142,12 +141,20 @@
 }
 
 .projectDetail__description{
-	max-width: 70%;
+  max-width: 40%;
 	font-family: $raleway_font;
-	font-size:10pt;
-	
+  font-size:$font-sm;
+  //line-height:1.0rem;
+  margin:0 5%;
+  align-self: center;
+  
+
 	@media all and (max-width: $mobile-app-width) {
-		text-align: center;
+    text-align: center;
+    font-size:12pt;
+    max-width: 100%;
+    margin:0;
+    margin-top:10%;
 	  }
 }
 .projectDetail__facts{
