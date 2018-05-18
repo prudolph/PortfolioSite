@@ -22,20 +22,41 @@ ReactDOM.render(jsx, document.getElementById('app'));
 
 
 firebase.auth().onAuthStateChanged((user) => {
-
-    console.log("User",firebase.auth().currentUser)
     if (user) {
-        var token = user.credential.accessToken;
-          console.log("User Token :", token);
-        store.dispatch(login(user.uid));
-        console.log("USER LOGGED IN ");
-        console.log("CURRENT LOCATION:::: ", history.location.pathname)
-        if (history.location.pathname === "/login") {
-            history.push('/admin/projects');
-        }
-    } else {
-        store.dispatch(logout());
-        console.log("USER LOGGED OUT")
+        console.log("Checking if user is Admin: ", user)
+        isAdminUser(user.uid,(result)=>{
+            if(result){
+                store.dispatch(login(user.uid));
+                if (history.location.pathname === "/login") {
+                    history.push('/admin/');
+                }
+            } else {
+                store.dispatch(logout());
+                if (history.location.pathname === "/login") {
+                    history.push('/');
+                }
+            }
+        });
     }
+});
 
-})
+
+function isAdminUser(userID,callback){
+
+        firebase.database().ref(`adminusers/`).once('value')
+        .then((snapshot) => {
+            const val = snapshot.val();
+            const adminIds = Object.values(val);
+            
+           if(adminIds.includes(userID)){
+                callback(true);
+            }else{
+                callback(false);
+           }
+        })
+        .catch((e) => {
+            console.log('Error fetching data', e);
+            callback(false);
+        });
+
+}

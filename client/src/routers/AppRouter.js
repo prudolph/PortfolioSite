@@ -25,6 +25,10 @@ export const history = createHistory();
             <Route exact path="/" component={Projects}/>
             <Route exact path="/login" component={LoginPage}/>
 
+            <PrivateRoute exact path="/admin/" component={ProjectListPage}/>
+            <PrivateRoute exact path="/admin/projects/edit/:id" component={ProjectEditPage}/>
+            <PrivateRoute exact path="/admin/bio/edit/" component={BioEditPage}/>
+  
             <Route exact path="/about" component={About}/>
             <Route path="/posts" component={Posts}/>
             <Route component={NotFound}/>

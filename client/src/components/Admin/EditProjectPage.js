@@ -29,6 +29,7 @@ class EditProjectPage extends React.Component {
       }
 
       fetchProjectFromFirebase(){
+        
         this.database.ref(`projects/${this.state.projectId}`).once('value')
         .then((snapshot) => {
             const val = snapshot.val();
@@ -72,7 +73,7 @@ class EditProjectPage extends React.Component {
             console.log("Description: ",this.refs.description.getCurrentContent());
             console.log("project data ", this.state.projectId);
             this.database.ref(`projects/${this.state.projectId}`).set({
-                oldID:this.state.projectData.oldID,
+               
                 title:this.refs.title.value,
                 slug:this.refs.slug.value,
                 subtitle:this.refs.subtitle.getCurrentContent(),
