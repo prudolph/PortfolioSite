@@ -78,7 +78,10 @@ class ProjectDetail extends Component {
 			slidesToShow: 1,
 			slidesToScroll: 1,
 			className:"projectDetail__carousel",
-			adaptiveHeight:true
+			adaptiveHeight:false,
+			autoPlay:true,
+			//centerMode:true
+			
 		  };
 
 		return (
