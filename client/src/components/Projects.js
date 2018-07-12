@@ -16,6 +16,7 @@ export default class Projects extends React.Component {
 		};
 
 		this.database = firebase.database();
+		this.handleClick = this.handleClick.bind(this);
 	}
 
 	componentDidMount() {
@@ -38,10 +39,13 @@ export default class Projects extends React.Component {
 	
 	}
 	
-	handleProjectSelect(projectSlug) {
-		const foundProject = this.state.projectData.find(({ slug }) => { return slug === projectSlug; });
-		this.setState({ selectedProject: foundProject })
+	handleClick(e) {
+		console.log("Handle projec select ", e);
+		
+		//const foundProject = this.state.projectData.find(({ slug }) => { return slug === projectSlug; });
+		//this.setState({ selectedProject: foundProject })
 	}
+	
 	handleProjectClose() {
 		this.setState({ selectedProject: undefined })
 	}
@@ -54,9 +58,6 @@ export default class Projects extends React.Component {
 			try {
 				const imagesJsonString = "["+projObj.mediaURLS+"]"
 				const imageUrlData = JSON.parse(imagesJsonString);
-				
-				
-				
 				var imageUrl="";
 				var curOrder=1000;
 				for (var imageObjIndex in imageUrlData){
@@ -72,11 +73,14 @@ export default class Projects extends React.Component {
 					
 				}
 			if(imageUrl){
-				const { _id: key, slug, title ,subtitle} = projObj;
+				const { slug, title ,subtitle} = projObj;
+
+
 				projects.push(
 					<ProjectItem
-						handleProjectSelect={this.handleProjectSelect.bind(this, slug)}
+						handleProjectSelect={this.handleClick}
 						key={slug}
+						slug={slug}
 						title={title}
 						image={imageUrl}
 						subtitle={subtitle}

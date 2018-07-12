@@ -20,11 +20,15 @@
 		width:100%;
 	
 	  }
-
+	
   }
 .projectItem:hover{
 	box-shadow: 0 10px 12px rgba(204, 197, 185, 0.75);
 
+}
+.projectItem a{
+	color:black
+	text-decoration: none;
 }
   .projectItem__image{
 	width:100%;

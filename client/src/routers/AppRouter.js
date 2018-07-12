@@ -12,6 +12,7 @@ import ProjectListPage from '../components/Admin/ProjectListPage'
 import ProjectEditPage from '../components/Admin/EditProjectPage'
 import BioEditPage from '../components/Admin/EditBioPage'
 import PrivateRoute from './PrivateRoute'
+import ProjectDetail from '../components/ProjectDetail';
 
 
 export const history = createHistory();
@@ -23,6 +24,8 @@ export const history = createHistory();
         <Header/>
         <Switch>
             <Route exact path="/" component={Projects}/>
+            <Route exact path="/project/:slug" component={ProjectDetail}/>
+
             <Route exact path="/login" component={LoginPage}/>
 
             <PrivateRoute exact path="/admin/" component={ProjectListPage}/>
