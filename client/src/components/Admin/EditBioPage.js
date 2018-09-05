@@ -7,8 +7,6 @@ class EditBioPage extends React.Component {
 
     constructor(props){
         super(props);
-        const pathname = this.props.location.pathname;
-        const projectId  = pathname.substr(pathname.lastIndexOf('/') + 1)
         this.state ={
             bioData:{}
         }
@@ -16,10 +14,7 @@ class EditBioPage extends React.Component {
       }
 
       componentWillMount(){
-        
         this.fetchProjectFromFirebase();
-
-     
       }
 
       fetchProjectFromFirebase(){
@@ -79,10 +74,10 @@ class EditBioPage extends React.Component {
  
       render() {
 
-        var {   
+        const {   
                 description = "",
                 bioImageUrl="",
-                id="" } = this.state.bioData;
+             } = this.state.bioData;
         return (
           <div>
           

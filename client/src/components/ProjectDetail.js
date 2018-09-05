@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import Modal from 'react-modal'
-import renderHTML from 'react-render-html';
-//import { Carousel } from 'react-responsive-carousel';
 import Slider from "react-slick";
 import {firebase} from '../firebase/firebase'
 
@@ -61,13 +58,11 @@ class ProjectDetail extends Component {
 	isMobileDevice() {
 		return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
 	};
+	
 	renderDescription(){
 		if(this.state.currentProject){
-			{console.log("DESCRIPTION: ", this.state.currentProject.description)}
-
 			return <p className="projectDetail__description"  dangerouslySetInnerHTML={{ __html: this.state.currentProject.description }}></p>
-		}
-			
+		}		
 	}
 	render() {
 

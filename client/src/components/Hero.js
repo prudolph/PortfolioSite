@@ -17,12 +17,10 @@ class Hero extends Component {
     var self = this;
 		this.database.ref('bio')
 			.ref.once("value")
-  			.then(function(snapshot) {
-        var projects =[];
-        
-				snapshot.forEach((childSnapshot)=> {
-          self.setState({bioData:childSnapshot.val()})
-				})
+  			.then(function(snapshot) { 
+          snapshot.forEach((childSnapshot)=> {
+            self.setState({bioData:childSnapshot.val()})
+          })
 			
 			
   	});
