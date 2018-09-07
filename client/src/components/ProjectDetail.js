@@ -72,7 +72,8 @@ class ProjectDetail extends Component {
 			slidesToShow: 1,
 			slidesToScroll: 1,
 			className: "projectDetail__carousel",
-			autoPlay:true
+			autoPlay:true,
+			
 	
 
 		};

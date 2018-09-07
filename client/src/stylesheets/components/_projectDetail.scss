@@ -62,18 +62,20 @@
 
 
 .projectDetail__carousel{
-
+   
     margin: auto;
-    width:960px;
-    height:540px;
+    width: 75%;
+    height:auto;
+   
+   
+    img,video{
+   
+      max-height:540px;
+      object-fit:contain;
+    }
 
 }
 
-.projectDetail__carousel,img, video{
-  width:960px;
-  height:540px;
-  object-fit: contain;
-}
 
 
 .projectDetail__info{

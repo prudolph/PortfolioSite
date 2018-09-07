@@ -178,13 +178,11 @@ p {
 
 .projectDetail__carousel {
   margin: auto;
-  width: 960px;
-  height: 540px; }
-
-.projectDetail__carousel, img, video {
-  width: 960px;
-  height: 540px;
-  object-fit: contain; }
+  width: 75%;
+  height: auto; }
+  .projectDetail__carousel img, .projectDetail__carousel video {
+    max-height: 540px;
+    object-fit: contain; }
 
 .projectDetail__info {
   display: flex;
